@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — LA YOUNGWOONG</title>
+<script>
+  if (sessionStorage.getItem('hasEntered') !== '1') {
+    location.replace('index.html');
+  }
+</script>
+<link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  Top
+</button>
+
+<div class="global-footer">
+  <div class="gf-left">
+    <a class="gf-name" href="index.html" onclick="sessionStorage.removeItem('hasEntered')">LA YOUNGWOONG</a>
+    <span class="gf-meta">&copy; 2026 &middot; Seoul, Republic of Korea</span>
+  </div>
+  <div class="gf-links">
+    <a class="gf-link" href="mailto:youngwoongra@gmail.com">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      <span>Email</span>
+    </a>
+    <a class="gf-link" href="tel:+821037834324">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call</span>
+    </a>
+    <a class="gf-link" href="https://instagram.com/nxwoong" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      <span>Instagram</span>
+    </a>
+    <a class="gf-link" href="https://www.linkedin.com/in/youngwoong-la-101259263/" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05C19.9 8 21 10.28 21 13.7V23h-4v-8.3c0-1.98-.04-4.53-2.76-4.53-2.77 0-3.19 2.16-3.19 4.39V23h-4V8z"/></svg>
+      <span>LinkedIn</span>
+    </a>
+  </div>
+</div>
+
+
+<main class="subpage">
+  <nav class="subnav">
+    <a class="subnav-back" href="menu.html">&larr;&nbsp; MENU</a>
+    <div class="subnav-pills">
+      <span class="subnav-pill on">About</span>
+      <a class="subnav-pill" href="project.html">Project</a>
+      <a class="subnav-pill" href="career.html">Career</a>
+    </div>
+  </nav>
+
+  <div class="page-hero-outer">
+    <div class="hero-photo"><img src="images/about-hero.jpg" alt=""></div>
+    <div class="wrap page-hero">
+    <span class="page-eyebrow">01 · About</span>
+    <h1 class="page-title"><span style="color:var(--accent)">Creative Generalist</span></h1>
+    <p class="page-desc">Designing experiences through content, 3D, branding, and storytelling.</p>
+
+    <div class="about-carousel" id="aboutCarousel">
+      <div class="ac-track" id="acTrack">
+        <div class="ac-slide">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <span>3+ YEARS AS A CONTENT CREATOR</span>
+        </div>
+        <div class="ac-slide">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          <span>OFFICE WORKER + YOUTUBER</span>
+        </div>
+        <div class="ac-slide">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span>3D · VIDEO · DESIGN</span>
+        </div>
+      </div>
+      <div class="ac-dots" id="acDots"></div>
+    </div>
+    </div>
+  </div>
+
+  <section class="page-section reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="section-tag">Journey</span><h2 class="section-title">How I Got Here</h2></div>
+      </div>
+      <div class="journey-track">
+        <div class="journey-line"></div>
+        <div class="journey-step"><span class="js-dot"></span><span class="js-label">Engineering<br>Student</span></div>
+        <div class="journey-step"><span class="js-dot"></span><span class="js-label">Learning<br>3D</span></div>
+        <div class="journey-step"><span class="js-dot"></span><span class="js-label">Broadcasting</span></div>
+        <div class="journey-step"><span class="js-dot"></span><span class="js-label">Media Art</span></div>
+        <div class="journey-step"><span class="js-dot"></span><span class="js-label">In-house Brand<br>Designer</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="section-tag">Toolset</span><h2 class="section-title">Skills &amp; Languages</h2></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-col">
+          <span class="section-tag">Languages</span>
+          <div class="lang-row"><span>Korean</span><div class="bar"><i style="width:100%"></i></div></div>
+          <div class="lang-row"><span>English</span><div class="bar"><i style="width:78%"></i></div></div>
+          <div class="lang-row"><span>Mandarin</span><div class="bar"><i style="width:48%"></i></div></div>
+        </div>
+        <div class="skill-col">
+          <span class="section-tag">Creative Tools</span>
+          <div class="chip-list">
+            <span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">InDesign</span>
+            <span class="chip">Blender</span><span class="chip">Cinema 4D</span><span class="chip">Figma</span>
+            <span class="chip">Unreal Engine</span><span class="chip">Higgsfield</span><span class="chip">Midjourney</span>
+          </div>
+        </div>
+        <div class="skill-col">
+          <span class="section-tag">Production</span>
+          <div class="chip-list">
+            <span class="chip">Premiere Pro</span><span class="chip">After Effects</span><span class="chip">CapCut</span>
+          </div>
+        </div>
+        <div class="skill-col">
+          <span class="section-tag">Collaboration</span>
+          <div class="chip-list">
+            <span class="chip">Notion</span><span class="chip">Google Workspace</span><span class="chip">Keynote</span><span class="chip">Microsoft Office</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="section-tag">After Work</span><h2 class="section-title">Building My Own Channel</h2></div>
+      </div>
+      <p class="afterwork-intro">Outside of work, I run my own YouTube channel — a space to practice branding myself the same way I brand the products and companies I work on.</p>
+      <a class="afterwork-link" href="https://www.youtube.com/@layoungwoong" target="_blank">
+        youtube.com/@layoungwoong
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <div class="about-stats cols-3">
+        <div class="item"><div class="num">1.16K</div><div class="lbl">SUBSCRIBERS</div></div>
+        <div class="item"><div class="num">886K</div><div class="lbl">TOTAL VIEWS</div></div>
+        <div class="item"><div class="num">23K</div><div class="lbl">WATCH HOURS</div></div>
+      </div>
+
+      <div class="aw-carousel-wrap">
+        <div class="aw-carousel" id="awCarousel">
+          <div class="afterwork-card">
+            <div class="video-placeholder has-thumb" data-video-id="CqDQSjbdLiA" style="background-image:url('https://img.youtube.com/vi/CqDQSjbdLiA/hqdefault.jpg')">
+              <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#101010"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <div class="aw-title">DALIAN VLOG</div>
+          </div>
+          <div class="afterwork-card">
+            <div class="video-placeholder has-thumb" data-video-id="vhfmrjSa-u4" style="background-image:url('https://img.youtube.com/vi/vhfmrjSa-u4/hqdefault.jpg')">
+              <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#101010"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <div class="aw-title">DAILY VLOG</div>
+          </div>
+          <div class="afterwork-card">
+            <div class="video-placeholder has-thumb" data-video-id="6aTrLL79NGo" style="background-image:url('https://img.youtube.com/vi/6aTrLL79NGo/hqdefault.jpg')">
+              <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#101010"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <div class="aw-title">COMMERCIAL</div>
+          </div>
+          <div class="afterwork-card">
+            <div class="video-placeholder has-thumb" data-video-id="SkqgeK6ziGQ" style="background-image:url('https://img.youtube.com/vi/SkqgeK6ziGQ/hqdefault.jpg')">
+              <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#101010"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <div class="aw-title">PLAYLIST</div>
+          </div>
+          <div class="afterwork-card">
+            <div class="video-placeholder has-thumb" data-video-id="aDh0ikxTpfI" style="background-image:url('https://img.youtube.com/vi/aDh0ikxTpfI/hqdefault.jpg')">
+              <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#101010"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <div class="aw-title">SWISS VLOG</div>
+          </div>
+        </div>
+        <button class="aw-nav aw-prev" id="awPrev" aria-label="Previous">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="aw-nav aw-next" id="awNext" aria-label="Next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="section-tag">Background</span><h2 class="section-title">Education &amp; Awards</h2></div>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <span class="job-tagbox">UNIVERSITY</span>
+          <span class="job-period">2014.03 — 2018.02 · Gyeonggi-do</span>
+          <h4>Gachon University</h4>
+          <ol>
+            <li><span class="n">01</span> B.A in Chemical &amp; Biological Engineering</li>
+            <li><span class="n">02</span> B.A in Life Sciences (Double Major)</li>
+          </ol>
+          <span class="edu-highlight">GPA 3.8 / 4.5</span>
+        </div>
+        <div class="edu-card">
+          <span class="job-tagbox">TRAINING COURSE</span>
+          <span class="job-period">2022.06 — 2023.01 · Seoul</span>
+          <h4>MBC 3D Video Content Producer Course</h4>
+          <ol>
+            <li><span class="n">01</span> Music Video Teaser — "All I Want For Christmas Is You" (Mariah Carey)</li>
+            <li><span class="n">02</span> Moving Poster — "Chungking Express" (Wong Kar-wai)</li>
+          </ol>
+          <span class="edu-highlight">First Prize · 2 Works</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/app.js"></script>
+<script>
+  (function(){
+    const track = document.getElementById('acTrack');
+    const dotsWrap = document.getElementById('acDots');
+    if(!track || !dotsWrap) return;
+    const slides = track.children;
+    const count = slides.length;
+    let index = 0;
+    let timer = null;
+
+    for(let i=0; i<count; i++){
+      const dot = document.createElement('span');
+      if(i===0) dot.classList.add('on');
+      dotsWrap.appendChild(dot);
+    }
+    const dots = dotsWrap.children;
+
+    function render(){
+      track.style.transform = `translateX(-${index * 100}%)`;
+      for(let i=0; i<dots.length; i++){
+        dots[i].classList.toggle('on', i===index);
+      }
+    }
+    function next(){
+      index = (index + 1) % count;
+      render();
+    }
+    function startAuto(){
+      timer = setInterval(next, 3200);
+    }
+    function resetAuto(){
+      clearInterval(timer);
+      startAuto();
+    }
+
+    document.getElementById('aboutCarousel').addEventListener('click', ()=>{
+      next();
+      resetAuto();
+    });
+
+    render();
+    startAuto();
+  })();
+
+  (function(){
+    const track = document.getElementById('awCarousel');
+    const prev = document.getElementById('awPrev');
+    const next = document.getElementById('awNext');
+    if(!track || !prev || !next) return;
+
+    // duplicate the set once so the auto-scroll can loop seamlessly
+    const originalWidth = track.scrollWidth;
+    const clones = Array.from(track.children).map(c => c.cloneNode(true));
+    clones.forEach(c => track.appendChild(c));
+
+    function cardStep(){
+      const card = track.querySelector('.afterwork-card');
+      return card ? card.getBoundingClientRect().width + 1 : 300;
+    }
+
+    let paused = false;
+    let resumeTimer = null;
+    const SPEED = 0.5; // px per frame, continuous left-flowing motion
+
+    function tick(){
+      if(!paused){
+        track.scrollLeft += SPEED;
+        if(track.scrollLeft >= originalWidth){
+          track.scrollLeft -= originalWidth;
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    function pauseThenResume(){
+      paused = true;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(()=>{ paused = false; }, 2200);
+    }
+
+    prev.addEventListener('click', ()=>{
+      pauseThenResume();
+      track.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', ()=>{
+      pauseThenResume();
+      track.scrollBy({ left: cardStep(), behavior: 'smooth' });
+    });
+    track.addEventListener('mouseenter', ()=>{ paused = true; });
+    track.addEventListener('mouseleave', ()=>{ clearTimeout(resumeTimer); paused = false; });
+  })();
+
+  // click a video thumbnail to swap in the real YouTube embed
+  (function(){
+    document.querySelectorAll('.video-placeholder[data-video-id]').forEach(ph=>{
+      ph.addEventListener('click', ()=>{
+        const id = ph.dataset.videoId;
+        const embed = document.createElement('div');
+        embed.className = 'video-embed';
+        embed.style.marginBottom = getComputedStyle(ph).marginBottom;
+        embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+        ph.replaceWith(embed);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
