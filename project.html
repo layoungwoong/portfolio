@@ -62,27 +62,39 @@
 
   <div class="wrap page-hero">
     <span class="page-eyebrow">01 · Selected Work</span>
-    <h1 class="page-title">Work, <span style="color:var(--accent)">before words.</span></h1>
-    <p class="page-desc">Selected work across event production, media art, 3D motion and digital content. Start with the moving image, then explore the process and production assets behind each project.</p>
-
-    <div class="project-showreel" aria-label="CLO Summit New York showreel">
-      <iframe src="https://www.youtube.com/embed/T9yNzYCBn_c?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=T9yNzYCBn_c&amp;controls=0&amp;modestbranding=1&amp;playsinline=1" title="CLO Summit New York showreel" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-      <div class="project-showreel-caption">
-        <span>Featured · 2025</span>
-        <strong>CLO Summit New York</strong>
-      </div>
-    </div>
-
-    <nav class="project-index" aria-label="Project categories">
-      <a href="#event">Event Prep.</a>
-      <a href="#media-art">Media Art</a>
-      <a href="#video-projects">3D Video</a>
-      <a href="#social">Social</a>
-      <a href="#youtube">YouTube</a>
-    </nav>
+    <h1 class="page-title">SELECTED WORK</h1>
+    <p class="page-desc">Choose a category to open the projects, process images and production details within it.</p>
   </div>
 
-  <section class="page-section">
+  <section class="project-cover-grid wrap" aria-label="Project categories">
+    <button class="project-cover project-cover-wide" type="button" data-project-target="event" style="--cover:url('/images/project-bg.jpg')">
+      <span class="project-cover-no">01</span>
+      <span class="project-cover-title">EVENT PREP.</span>
+      <span class="project-cover-action">VIEW PROJECTS ↗</span>
+    </button>
+    <button class="project-cover" type="button" data-project-target="media-art" style="--cover:url('/images/carousel/irworobongdo-01.jpg')">
+      <span class="project-cover-no">02</span>
+      <span class="project-cover-title">MEDIA ART</span>
+      <span class="project-cover-action">VIEW PROJECTS ↗</span>
+    </button>
+    <button class="project-cover" type="button" data-project-target="video-projects" style="--cover:url('/images/carousel/virtual-zoo-01.jpg')">
+      <span class="project-cover-no">03</span>
+      <span class="project-cover-title">3D VIDEO</span>
+      <span class="project-cover-action">VIEW PROJECTS ↗</span>
+    </button>
+    <button class="project-cover" type="button" data-project-target="social" style="--cover:url('/images/profile-square.jpg')">
+      <span class="project-cover-no">04</span>
+      <span class="project-cover-title">SOCIAL</span>
+      <span class="project-cover-action">VIEW PROJECTS ↗</span>
+    </button>
+    <button class="project-cover" type="button" data-project-target="youtube" style="--cover:url('https://img.youtube.com/vi/icSTh7wg2fQ/maxresdefault.jpg')">
+      <span class="project-cover-no">05</span>
+      <span class="project-cover-title">YOUTUBE</span>
+      <span class="project-cover-action">VIEW PROJECTS ↗</span>
+    </button>
+  </section>
+
+  <section class="page-section project-detail-layer" aria-live="polite">
     <div class="wrap">
 
       <div class="proj-mega reveal" id="event">
@@ -421,6 +433,46 @@
 
 <script src="js/app.js"></script>
 <script>
+  // category covers open the existing project content as a full-screen detail layer
+  (function(){
+    const layer = document.querySelector('.project-detail-layer');
+    const panels = Array.from(document.querySelectorAll('.project-detail-layer .proj-mega'));
+    if(!layer || !panels.length) return;
+
+    const close = document.createElement('button');
+    close.className = 'project-detail-close';
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Close project details');
+    close.textContent = 'CLOSE ×';
+    layer.prepend(close);
+
+    function openPanel(id){
+      panels.forEach(panel=>{
+        const active = panel.id === id;
+        panel.classList.toggle('project-panel-active', active);
+        if(active) panel.classList.add('in');
+      });
+      layer.classList.add('project-detail-open');
+      document.body.classList.add('project-detail-is-open');
+      layer.scrollTop = 0;
+      close.focus();
+    }
+
+    function closePanel(){
+      layer.classList.remove('project-detail-open');
+      document.body.classList.remove('project-detail-is-open');
+      panels.forEach(panel=>panel.classList.remove('project-panel-active'));
+    }
+
+    document.querySelectorAll('[data-project-target]').forEach(cover=>{
+      cover.addEventListener('click', ()=>openPanel(cover.dataset.projectTarget));
+    });
+    close.addEventListener('click', closePanel);
+    document.addEventListener('keydown', event=>{
+      if(event.key === 'Escape' && layer.classList.contains('project-detail-open')) closePanel();
+    });
+  })();
+
   // shared auto-scrolling carousel: continuous motion + working prev/next buttons
   function initAutoCarousel(track, speed){
     if(!track || track.dataset.autoInit) return null;

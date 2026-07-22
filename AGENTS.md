@@ -85,10 +85,9 @@ to override every side.
 
 ## Design system
 
-- Colors are CSS custom properties in `:root` (top of `css/styles.css`):
-  `--bg` (#0d0d0d), `--text` (#fff), `--accent` (#fff — the "accent" is
-  currently white/grayscale, not a color; the whole site is intentionally
-  monochrome except real photographs, which keep their natural color).
+- Colors are CSS custom properties in `:root` (top of `css/styles.css`). The
+  current direction is a light editorial palette: warm paper (`--bg`) with
+  near-black typography (`--text` / `--accent`). Photographs retain color.
 - Fonts: `SUIT` / `SUIT Variable` (loaded from jsDelivr, sun-typeface/SUIT) for
   body/UI text; `Lexend` (Google Fonts) is used for the hero name and all major
   display headings. Display titles are intentionally uppercase.
