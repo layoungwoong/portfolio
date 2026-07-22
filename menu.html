@@ -12,115 +12,54 @@
 </script>
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="menu-page">
 
 <div class="grain"></div>
 <div class="cursor-dot" id="cursorDot"></div>
 
-<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
-  Top
-</button>
+<header class="editorial-header">
+  <a href="index.html" onclick="sessionStorage.removeItem('hasEntered')">LA YOUNGWOONG</a>
+  <span>MENU</span>
+</header>
 
-<div class="global-footer">
-  <div class="gf-left">
-    <a class="gf-name" href="index.html" onclick="sessionStorage.removeItem('hasEntered')">LA YOUNGWOONG</a>
-    <span class="gf-meta">&copy; 2026 &middot; Seoul, Republic of Korea</span>
-  </div>
-  <div class="gf-links">
-    <a class="gf-link" href="mailto:youngwoongra@gmail.com">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-      <span>Email</span>
-    </a>
-    <a class="gf-link" href="tel:+821037834324">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>Call</span>
-    </a>
-    <a class="gf-link" href="https://instagram.com/nxwoong" target="_blank">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-      <span>Instagram</span>
-    </a>
-    <a class="gf-link" href="https://www.linkedin.com/in/youngwoong-la-101259263/" target="_blank">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05C19.9 8 21 10.28 21 13.7V23h-4v-8.3c0-1.98-.04-4.53-2.76-4.53-2.77 0-3.19 2.16-3.19 4.39V23h-4V8z"/></svg>
-      <span>LinkedIn</span>
-    </a>
-  </div>
-</div>
+<main class="editorial-menu">
+  <span class="em-kicker">PORTFOLIO / 2026</span>
 
+  <a class="em-work-link" href="project.html" aria-label="View selected projects">
+    <h1 class="em-title">
+      <span>SELECTED</span>
+      <span class="em-symbol-row">
+        <i aria-hidden="true">✱</i>
+        <b aria-hidden="true">(</b>
+        <span class="em-image"><img src="images/project-bg.jpg" alt="Selected project preview"></span>
+        <b aria-hidden="true">)</b>
+        <small>VIEW PROJECTS&nbsp; ↗</small>
+      </span>
+      <span>WORK</span>
+    </h1>
+  </a>
 
-<main class="hub-main">
-  <div class="hub-gradient"></div>
-  <div id="noiseContainer" class="noise-container"></div>
-  <div class="hub-eyebrow">LA YOUNGWOONG · Portfolio</div>
-  <h2 class="hub-text" id="hubText"></h2>
+  <p class="em-intro">3D GENERALIST &amp; CONTENTS CREATOR<br>BASED IN SEOUL</p>
 
-  <div class="hub-buttons">
-    <a class="glass-btn" href="about.html" style="background-image:url('images/about-bg.jpg'); background-position:78% 12%;">
-      <div class="gb-scrim">
-        <span class="gb-idx">01</span>
-        <span class="gb-label">About</span>
-        <span class="gb-desc">Get to know who I am and the story behind my work</span>
-      </div>
-    </a>
-
-    <a class="glass-btn" href="project.html" style="background-image:url('images/project-bg.jpg'); background-position:55% 35%;">
-      <div class="gb-scrim">
-        <span class="gb-idx">02</span>
-        <span class="gb-label">Project</span>
-        <span class="gb-desc">A showcase of featured projects and creative highlights</span>
-      </div>
-    </a>
-
-    <a class="glass-btn" href="career.html" style="background-image:url('images/career-bg.jpg'); background-position:42% 10%;">
-      <div class="gb-scrim">
-        <span class="gb-idx">03</span>
-        <span class="gb-label">Career</span>
-        <span class="gb-desc">A look at the companies and career journey that shaped my path</span>
-      </div>
-    </a>
-  </div>
-
+  <nav class="em-nav" aria-label="Main navigation">
+    <a href="project.html"><span>01</span><strong>PROJECTS</strong></a>
+    <a href="career.html"><span>02</span><strong>CAREER</strong></a>
+    <a href="about.html"><span>03</span><strong>ABOUT</strong></a>
+  </nav>
 </main>
 
+<footer class="editorial-footer">
+  <span>AVAILABLE FOR CREATIVE COLLABORATIONS</span>
+  <div>
+    <a href="mailto:youngwoongra@gmail.com">EMAIL</a>
+    <a href="https://instagram.com/nxwoong" target="_blank" rel="noopener">INSTAGRAM</a>
+    <a href="https://www.linkedin.com/in/youngwoong-la-101259263/" target="_blank" rel="noopener">LINKEDIN</a>
+  </div>
+</footer>
+
 <script src="js/app.js"></script>
-<script src="js/noise.js"></script>
-<script>
-  (function(){
-    const el = document.getElementById('hubText');
-    if(!el) return;
-    const segments = [
-      { text: "Let's make" },
-      { br: true },
-      { text: "something " },
-      { text: "real.", cls: "accent" }
-    ];
-    let segIndex = 0, charIndex = 0, currentSpan = null;
-    function step(){
-      if(segIndex >= segments.length) return;
-      const seg = segments[segIndex];
-      if(seg.br){
-        el.appendChild(document.createElement('br'));
-        segIndex++; charIndex = 0;
-        setTimeout(step, 90);
-        return;
-      }
-      if(charIndex === 0){
-        currentSpan = document.createElement('span');
-        if(seg.cls) currentSpan.className = seg.cls;
-        el.appendChild(currentSpan);
-      }
-      charIndex++;
-      currentSpan.textContent = seg.text.slice(0, charIndex);
-      if(charIndex >= seg.text.length){
-        segIndex++; charIndex = 0;
-      }
-      setTimeout(step, 70);
-    }
-    setTimeout(step, 300);
-  })();
-</script>
 </body>
 </html>

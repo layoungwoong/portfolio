@@ -48,10 +48,12 @@ This is intentionally **not** a single-page app. Each `.html` file is a real,
 separate page reached via normal `<a href>` navigation (the user explicitly
 asked for this after an earlier SPA version felt wrong).
 
-Flow: `index.html` (hero) → click Enter → `menu.html` (hub) → About / Project / Career.
+Primary flow: `index.html` (hero) → click View Projects → `project.html`. The
+`menu.html` hub remains available as an index, with Project emphasized first,
+followed by Career and About.
 
 Session-gating via `sessionStorage.getItem('hasEntered')`:
-- `index.html` redirects to `menu.html` if the flag is already set (so the hero
+- `index.html` redirects to `project.html` if the flag is already set (so the hero
   never shows twice in one browser session).
 - `menu.html`, `about.html`, `project.html`, `career.html` each have an inline
   guard script in `<head>` that redirects back to `index.html` if the flag is
@@ -88,9 +90,8 @@ to override every side.
   currently white/grayscale, not a color; the whole site is intentionally
   monochrome except real photographs, which keep their natural color).
 - Fonts: `SUIT` / `SUIT Variable` (loaded from jsDelivr, sun-typeface/SUIT) for
-  all body/UI text; `Geist Pixel` (Google Fonts) is used **only** for large
-  display headings (hero name, hub headline, page titles, section titles) —
-  it's a pixel/bitmap display face, not meant for small text.
+  body/UI text; `Lexend` (Google Fonts) is used for the hero name and all major
+  display headings. Display titles are intentionally uppercase.
 - Class naming is loosely BEM-ish with page-scoped prefixes: `.proj-*`
   (project.html), `.aw-*` (about.html "After Work" carousel), `.ac-*` (about
   hero tag carousel), `.pm-*` (project meta stat row), `.gf-*` (global footer).

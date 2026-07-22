@@ -11,7 +11,7 @@
 </script>
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -52,24 +52,40 @@
 
 <main class="subpage">
   <nav class="subnav">
-    <a class="subnav-back" href="menu.html">&larr;&nbsp; MENU</a>
+    <a class="subnav-back" href="menu.html">&larr;&nbsp; INDEX</a>
     <div class="subnav-pills">
-      <a class="subnav-pill" href="about.html">About</a>
       <span class="subnav-pill on">Project</span>
       <a class="subnav-pill" href="career.html">Career</a>
+      <a class="subnav-pill" href="about.html">About</a>
     </div>
   </nav>
 
   <div class="wrap page-hero">
-    <span class="page-eyebrow">02 · Featured Work</span>
-    <h1 class="page-title">Featured <span style="color:var(--accent)">Projects</span></h1>
-    <p class="page-desc">A curated collection of event production, media art, 3D video projects, and brand content — bringing together visual direction, production details, and creative storytelling across multiple formats.</p>
+    <span class="page-eyebrow">01 · Selected Work</span>
+    <h1 class="page-title">Work, <span style="color:var(--accent)">before words.</span></h1>
+    <p class="page-desc">Selected work across event production, media art, 3D motion and digital content. Start with the moving image, then explore the process and production assets behind each project.</p>
+
+    <div class="project-showreel" aria-label="CLO Summit New York showreel">
+      <iframe src="https://www.youtube.com/embed/T9yNzYCBn_c?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=T9yNzYCBn_c&amp;controls=0&amp;modestbranding=1&amp;playsinline=1" title="CLO Summit New York showreel" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <div class="project-showreel-caption">
+        <span>Featured · 2025</span>
+        <strong>CLO Summit New York</strong>
+      </div>
+    </div>
+
+    <nav class="project-index" aria-label="Project categories">
+      <a href="#event">Event Prep.</a>
+      <a href="#media-art">Media Art</a>
+      <a href="#video-projects">3D Video</a>
+      <a href="#social">Social</a>
+      <a href="#youtube">YouTube</a>
+    </nav>
   </div>
 
   <section class="page-section">
     <div class="wrap">
 
-      <div class="proj-mega reveal">
+      <div class="proj-mega reveal" id="event">
         <div class="proj-mega-head section-head">
           <div><span class="section-tag">01 · Event Prep.</span><h2 class="section-title">Event Prep.</h2></div>
         </div>
@@ -153,7 +169,7 @@
         </div>
       </div>
 
-      <div class="proj-mega reveal">
+      <div class="proj-mega reveal" id="media-art">
         <div class="proj-mega-head section-head">
           <div><span class="section-tag">02 · Media Art</span><h2 class="section-title">Media Art</h2></div>
         </div>
@@ -245,7 +261,7 @@
         </div>
       </div>
 
-      <div class="proj-mega reveal">
+      <div class="proj-mega reveal" id="video-projects">
         <div class="proj-mega-head section-head">
           <div><span class="section-tag">03 · Video Projects</span><h2 class="section-title">Video Projects</h2></div>
         </div>
@@ -351,7 +367,7 @@
         </div>
       </div>
 
-      <div class="proj-mega reveal">
+      <div class="proj-mega reveal" id="social">
         <div class="proj-mega-head section-head">
           <div><span class="section-tag">04 · SNS Marketing</span><h2 class="section-title">CONNECT Instagram</h2></div>
           <p class="section-desc">Created fast, trend-responsive content for CONNECT Instagram by combining AI tools with various creative production workflows. Through visuals, short-form content, and social media assets, I promoted marketplace items on CONNECT in diverse and engaging ways.</p>
@@ -368,7 +384,7 @@
         </div>
       </div>
 
-      <div class="proj-mega reveal">
+      <div class="proj-mega reveal" id="youtube">
         <div class="proj-mega-head section-head">
           <div><span class="section-tag">05 · YouTube</span><h2 class="section-title">SBS YouTube Channel</h2></div>
           <p class="section-desc">Edited and adapted SBS entertainment programs, including Inkigayo and Baek Jong-won's Alley Restaurant, for the YouTube platform. By repackaging broadcast content for online viewing, I helped make SBS programs more accessible and engaging for digital audiences.</p>
