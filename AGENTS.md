@@ -24,43 +24,40 @@ Then visit `http://localhost:3000/index.html`.
 
 ```
 index.html      Hero / landing page (entry point)
-menu.html       Hub page reached after clicking "Enter" — 3 nav cards
-about.html      About / Skills / Journey / After Work / Education
-project.html    Featured work, split into 5 sections (see below)
-career.html     Work experience timeline
+project.html    Unified scrolling portfolio: Project / Career / About
+about.html      About section content source; direct visits redirect to project.html#about
+career.html     Career section content source; direct visits redirect to project.html#career
 
 css/styles.css  All styles for every page (single shared stylesheet)
 js/app.js       Shared: custom cursor, mouse-follow gradient tracking,
                 scroll-reveal (.reveal → .in), footer, nav — loaded on every page
 js/prism.js     WebGL "Prism" background effect for index.html only (see below)
-js/noise.js     Canvas-based film-grain "Noise" effect for menu.html only
+js/noise.js     Legacy canvas-based film-grain effect (currently unused)
 
 images/         All photos (JPEGs, pre-optimized/resized already — don't
                 re-upload huge originals, keep images web-sized ~100-300KB)
 ```
 
-Every page includes `css/styles.css` and `js/app.js`. `index.html` additionally
-loads `js/prism.js`; `menu.html` additionally loads `js/noise.js`.
+Every visible page includes `css/styles.css` and `js/app.js`. `index.html`
+additionally loads `js/prism.js`.
 
 ## Navigation model (important — don't "fix" this)
 
-This is intentionally **not** a single-page app. Each `.html` file is a real,
-separate page reached via normal `<a href>` navigation (the user explicitly
-asked for this after an earlier SPA version felt wrong).
+The visible portfolio experience is a single scrolling page. `project.html`
+loads the Career and About content from their source files, and its sticky nav
+uses same-page anchors.
 
-Primary flow: `index.html` (hero) → click View Projects → `project.html`. The
-`menu.html` hub remains available as an index, with Project emphasized first,
-followed by Career and About.
+Primary flow: `index.html` (hero) → click View Projects → `project.html`.
 
 Session-gating via `sessionStorage.getItem('hasEntered')`:
 - `index.html` redirects to `project.html` if the flag is already set (so the hero
   never shows twice in one browser session).
-- `menu.html`, `about.html`, `project.html`, `career.html` each have an inline
-  guard script in `<head>` that redirects back to `index.html` if the flag is
+- `about.html`, `project.html`, and `career.html` each have an inline guard
+  script in `<head>` that redirects back to `index.html` if the flag is
   **not** set (so you can't deep-link past the hero).
 - The footer's "LA YOUNGWOONG" wordmark clears the flag before navigating to
   `index.html`, so clicking it actually shows the hero again (otherwise the
-  guard above would just bounce you straight back to menu.html).
+  guard above would otherwise bounce the visitor back to the portfolio).
 
 ## ⚠️ CSS gotcha that cost a lot of debugging time — do not reintroduce
 
@@ -137,7 +134,7 @@ loaded via **dynamic `import()`** of OGL from a CDN
   once, then explicitly reverted back to color per user request — don't
   re-add `filter:grayscale(1)` unless asked).
 
-## `js/noise.js` — canvas film-grain (menu.html only)
+## `js/noise.js` — legacy canvas film-grain
 
 Self-contained canvas 2D noise generator (not a shader), drawn into
 `#noiseContainer`. Params (`patternSize`, `patternAlpha`, etc.) are set in the
@@ -174,7 +171,7 @@ Self-contained canvas 2D noise generator (not a shader), drawn into
 `#scrollTopBtn` (`.scroll-top-btn` in CSS) is a single reusable component.
 The JS in `js/app.js` (bottom of the file) is a no-op if the button isn't
 present in the DOM, so it's safe to load on every page. The button markup
-itself is only included in `about.html`, `menu.html`, and `project.html`
+itself is included in `about.html` and `project.html`
 (not `index.html` — the hero page doesn't scroll — and not `career.html`,
 by request). To add it to another page, just paste the same `<button
 id="scrollTopBtn">` markup right before `.global-footer` — no JS/CSS
@@ -182,9 +179,7 @@ changes needed.
 
 `.subnav` is already `position: sticky; top: 0;` site-wide (see
 `css/styles.css`), so header/nav-stays-visible-on-scroll is already handled
-for every page that has a subnav (about/project/career). `menu.html` has no
-subnav by design (it's a single hub screen); it wasn't given one since
-`.hub-main` is deliberately a full-viewport single-screen page.
+for every page that has a subnav (about/project/career).
 
 ## Deployment
 

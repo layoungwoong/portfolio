@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Career — LA YOUNGWOONG</title>
 <script>
+  if (window.top === window.self) {
+    location.replace('project.html#career');
+  }
   if (sessionStorage.getItem('hasEntered') !== '1') {
     location.replace('index.html');
   }
@@ -12,7 +15,7 @@
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=nats-1">
 </head>
 <body>
 
@@ -47,16 +50,15 @@
 
 <main class="subpage">
   <nav class="subnav">
-    <a class="subnav-back" href="menu.html">&larr;&nbsp; INDEX</a>
+    <a class="subnav-back" href="index.html">LA YOUNGWOONG</a>
     <div class="subnav-pills">
-      <a class="subnav-pill" href="project.html">Project</a>
+      <a class="subnav-pill" href="project.html#project">Project</a>
       <span class="subnav-pill on">Career</span>
-      <a class="subnav-pill" href="about.html">About</a>
+      <a class="subnav-pill" href="project.html#about">About</a>
     </div>
   </nav>
 
   <div class="wrap page-hero">
-    <span class="page-eyebrow">02 · Career</span>
     <h1 class="page-title">Work <span style="color:var(--accent)">Experience</span></h1>
     <p class="page-desc">A record of leading both planning and hands-on production — from media art installations to brand content.</p>
   </div>

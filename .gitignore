@@ -3,3 +3,6 @@ node_modules/
 *.log
 .vercel
 .env
+/work/
+/outputs/
+/assets/WM2-animated.glb

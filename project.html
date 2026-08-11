@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project — LA YOUNGWOONG</title>
+<title>Portfolio — LA YOUNGWOONG</title>
 <script>
   if (sessionStorage.getItem('hasEntered') !== '1') {
     location.replace('index.html');
@@ -12,9 +12,9 @@
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=section-labels-removed-2">
 </head>
-<body>
+<body class="portfolio-page">
 
 <div class="grain"></div>
 <div class="cursor-dot" id="cursorDot"></div>
@@ -51,22 +51,59 @@
 
 
 <main class="subpage">
-  <nav class="subnav">
-    <a class="subnav-back" href="menu.html">&larr;&nbsp; INDEX</a>
-    <div class="subnav-pills">
-      <span class="subnav-pill on">Project</span>
-      <a class="subnav-pill" href="career.html">Career</a>
-      <a class="subnav-pill" href="about.html">About</a>
+  <audio id="portfolioAudio" src="audio/portfolio-theme.mp3" loop preload="auto"></audio>
+  <nav class="subnav" aria-label="Portfolio sections">
+    <a class="subnav-back subnav-home" href="index.html" aria-label="Home" onclick="sessionStorage.removeItem('hasEntered')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 11.5 12 4l9 7.5"/>
+        <path d="M5.5 10v10h13V10"/>
+        <path d="M9.5 20v-6h5v6"/>
+      </svg>
+    </a>
+    <div class="subnav-actions">
+      <div class="audio-player" data-audio-player aria-label="Background music controls">
+        <span class="audio-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <button class="audio-toggle" type="button" data-audio-toggle aria-label="Play music" aria-pressed="false">
+          <svg class="audio-icon-play" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="audio-icon-pause" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+        </button>
+        <label class="audio-volume-wrap" aria-label="Music volume">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15 9a4 4 0 010 6"/><path d="M18 6a8 8 0 010 12"/></svg>
+          <input class="audio-volume" data-audio-volume type="range" min="0" max="1" step="0.05" value="0.55">
+        </label>
+      </div>
+      <div class="subnav-pills">
+        <a class="subnav-pill on" href="#project" data-section-link="project">Project</a>
+        <a class="subnav-pill" href="#career" data-section-link="career">Career</a>
+        <a class="subnav-pill" href="#about" data-section-link="about">About</a>
+      </div>
     </div>
   </nav>
 
+  <div class="portfolio-section-anchor" id="project">
   <div class="wrap page-hero">
-    <span class="page-eyebrow">01 · Selected Work</span>
     <h1 class="page-title">SELECTED WORK</h1>
-    <p class="page-desc">Choose a category to open the projects, process images and production details within it.</p>
+    <p class="page-desc">A selection of event, media art, 3D and YouTube projects. Select a thumbnail to view details.</p>
   </div>
 
-  <section class="project-cover-grid wrap" aria-label="Project categories">
+  <section class="selected-work-grid wrap" id="selectedWorkGrid" aria-label="Selected projects"></section>
+
+  <dialog class="project-glass-dialog" id="projectGlassDialog" aria-labelledby="projectDialogTitle">
+    <article class="project-glass-panel">
+      <button class="project-dialog-close" type="button" data-project-dialog-close aria-label="Close project details">×</button>
+      <div class="project-dialog-media" id="projectDialogMedia"></div>
+      <div class="project-dialog-gallery" id="projectDialogGallery" aria-label="Project images"></div>
+      <div class="project-dialog-copy">
+        <p class="project-dialog-category" id="projectDialogCategory"></p>
+        <h2 class="project-dialog-title" id="projectDialogTitle"></h2>
+        <p class="project-dialog-subtitle" id="projectDialogSubtitle"></p>
+        <p class="project-dialog-description" id="projectDialogDescription"></p>
+        <div class="project-dialog-meta" id="projectDialogMeta"></div>
+      </div>
+    </article>
+  </dialog>
+
+  <section class="project-cover-grid wrap" aria-label="Project categories" hidden>
     <button class="project-cover project-cover-wide" type="button" data-project-target="event" style="--cover:url('/images/project-bg.jpg')">
       <span class="project-cover-no">01</span>
       <span class="project-cover-title">EVENT PREP.</span>
@@ -94,7 +131,7 @@
     </button>
   </section>
 
-  <section class="page-section project-detail-layer" aria-live="polite">
+  <section class="page-section project-detail-layer" aria-live="polite" hidden>
     <div class="wrap">
 
       <div class="proj-mega reveal" id="event">
@@ -429,9 +466,20 @@
 
     </div>
   </section>
+  </div>
+
+  <section class="portfolio-section-anchor unified-section" id="career" aria-label="Career">
+    <div class="unified-loading">Loading career…</div>
+  </section>
+
+  <section class="portfolio-section-anchor unified-section" id="about" aria-label="About">
+    <div class="unified-loading">Loading about…</div>
+  </section>
 </main>
 
 <script src="js/app.js"></script>
+<script src="js/audio-player.js"></script>
+<script src="js/project-gallery.js?v=selected-work-contain-9"></script>
 <script>
   // category covers open the existing project content as a full-screen detail layer
   (function(){
@@ -527,9 +575,10 @@
     });
   });
 
-  // click a video thumbnail to swap in the real YouTube embed
-  document.querySelectorAll('.video-placeholder[data-video-id]').forEach(ph=>{
-    ph.addEventListener('click', ()=>{
+  // click any current or dynamically loaded video thumbnail to open YouTube
+  document.addEventListener('click', event=>{
+    const ph = event.target.closest('.video-placeholder[data-video-id]');
+    if(ph){
       const id = ph.dataset.videoId;
       const isPlaylist = ph.dataset.playlist === '1';
       const src = isPlaylist
@@ -539,8 +588,79 @@
       embed.className = 'video-embed';
       embed.innerHTML = `<iframe src="${src}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
       ph.replaceWith(embed);
-    });
+    }
   });
+
+  async function loadUnifiedSection(file, targetId){
+    const target = document.getElementById(targetId);
+    if(!target) return;
+    try {
+      const response = await fetch(file);
+      if(!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      const source = new DOMParser().parseFromString(await response.text(), 'text/html');
+      const main = source.querySelector('main.subpage');
+      if(!main) throw new Error('Missing page content');
+      main.querySelector('.subnav')?.remove();
+      target.replaceChildren(...Array.from(main.children));
+      target.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+    } catch(error) {
+      target.innerHTML = `<div class="wrap unified-error">Unable to load this section. <button type="button" onclick="location.reload()">Try again</button></div>`;
+      console.error(`Failed to load ${file}`, error);
+    }
+  }
+
+  function initAboutSection(){
+    const track = document.getElementById('acTrack');
+    const dotsWrap = document.getElementById('acDots');
+    if(track && dotsWrap && !track.dataset.unifiedInit){
+      track.dataset.unifiedInit = '1';
+      const slides = track.children;
+      let index = 0;
+      for(let i=0; i<slides.length; i++) dotsWrap.appendChild(document.createElement('span'));
+      const dots = dotsWrap.children;
+      const render = ()=>{
+        track.style.transform = `translateX(-${index * 100}%)`;
+        for(let i=0; i<dots.length; i++) dots[i].classList.toggle('on', i===index);
+      };
+      const next = ()=>{ index = (index + 1) % slides.length; render(); };
+      let timer = setInterval(next, 3200);
+      document.getElementById('aboutCarousel')?.addEventListener('click', ()=>{
+        next();
+        clearInterval(timer);
+        timer = setInterval(next, 3200);
+      });
+      render();
+    }
+
+    const awTrack = document.getElementById('awCarousel');
+    const ctrl = initAutoCarousel(awTrack, 0.5);
+    const step = ()=>awTrack?.querySelector('.afterwork-card')?.getBoundingClientRect().width + 1 || 300;
+    document.getElementById('awPrev')?.addEventListener('click', ()=>{
+      ctrl?.pauseThenResume();
+      awTrack.scrollBy({left:-step(), behavior:'smooth'});
+    });
+    document.getElementById('awNext')?.addEventListener('click', ()=>{
+      ctrl?.pauseThenResume();
+      awTrack.scrollBy({left:step(), behavior:'smooth'});
+    });
+  }
+
+  Promise.all([
+    loadUnifiedSection('career.html?v=section-labels-removed-2', 'career'),
+    loadUnifiedSection('about.html?v=section-labels-removed-2', 'about')
+  ]).then(()=>{
+    initAboutSection();
+    if(location.hash) document.querySelector(location.hash)?.scrollIntoView();
+  });
+
+  const sectionLinks = document.querySelectorAll('[data-section-link]');
+  const sectionObserver = new IntersectionObserver(entries=>{
+    const visible = entries.filter(entry=>entry.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(!visible) return;
+    sectionLinks.forEach(link=>link.classList.toggle('on', link.dataset.sectionLink === visible.target.id));
+  }, {rootMargin:'-25% 0px -60% 0px', threshold:[0, 0.1]});
+  document.querySelectorAll('.portfolio-section-anchor').forEach(section=>sectionObserver.observe(section));
 </script>
 <script async src="https://www.instagram.com/embed.js"></script>
 </body>

@@ -1,6 +1,6 @@
 # La Youngwoong — Portfolio
 
-A static, framework-free portfolio site (plain HTML/CSS/JS, no build step).
+A static, framework-free portfolio site (plain HTML/CSS/JS, no build step). The landing page opens a unified scrolling portfolio containing Project, Career, and About sections.
 
 ## Run locally
 
@@ -18,7 +18,9 @@ Then open **http://localhost:3000/index.html**.
 ## Structure
 
 ```
-index.html, menu.html, about.html, project.html, career.html   pages
+index.html                                                     landing page
+project.html                                                   unified portfolio page
+about.html, career.html                                        section content sources / legacy redirects
 css/styles.css                                                  all styles
 js/app.js, js/prism.js, js/noise.js                              scripts
 images/                                                          photos
