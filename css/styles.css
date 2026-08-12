@@ -1054,6 +1054,9 @@ html.has-custom-cursor, html.has-custom-cursor *{ cursor:none !important; }
 .project-video-hero h1{margin:0;color:#fff;font-size:clamp(38px,6.5vw,104px);line-height:1.02;letter-spacing:-.045em;text-align:center;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.3);text-transform:none}
 .portfolio-page #career .page-hero-outer,.portfolio-page #career .page-section,.portfolio-page #career .job{border-top:0!important;border-bottom:0!important}
 .project-video-hero h1 span{display:block}
+.project-video-hero h1 .type-line{min-height:1.02em}
+.project-video-hero h1 .type-line.is-typing::after{content:'';display:inline-block;width:.035em;height:.78em;margin-left:.06em;background:currentColor;vertical-align:-.04em;animation:typeCursor .72s steps(1,end) infinite}
+@keyframes typeCursor{50%{opacity:0}}
 .project-video-hero-copy p{margin:22px 0 0;color:rgba(255,255,255,.62);font-family:'NATS',sans-serif!important;font-size:12px;font-style:normal;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
 .project-video-hero+.selected-work-grid{position:relative;margin-top:-56px;padding-top:56px;background:#050505}
 .photo-gallery-heading{
@@ -2264,6 +2267,7 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
 }
 
 @media(prefers-reduced-motion:reduce){
+  .project-video-hero h1 .type-line.is-typing::after{display:none}
   .project-glass-panel{transition:none}
   .project-dialog-gallery-track{animation:none}
 }
