@@ -93,7 +93,7 @@ void main(){vec4 o=vec4(0.0);mainImage(o,gl_FragCoord.xy);fragColor=o;}`;
     }});
     const mesh = new Mesh(gl,{geometry:new Triangle(gl),program});
     const iceBlue = hexToRgb('#96c7d0');
-    const enterRed = hexToRgb('#b64659');
+    const enterRed = hexToRgb('#db0000');
     let enterStartedAt = 0;
     const onEnter = ()=>{
       enterStartedAt = performance.now();
