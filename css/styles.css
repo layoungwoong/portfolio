@@ -1056,7 +1056,7 @@ html.has-custom-cursor, html.has-custom-cursor *{ cursor:none !important; }
 .project-video-hero h1 span{display:block}
 .project-video-hero h1 .type-line{min-height:1.02em}
 .project-video-hero h1 .type-line-accent{color:var(--enter-red)}
-.project-video-hero h1 .type-line.is-typing::after{content:'';display:inline-block;width:.035em;height:.78em;margin-left:.06em;background:currentColor;vertical-align:-.04em;animation:typeCursor .72s steps(1,end) infinite}
+.project-video-hero h1 .type-line.is-typing::after,.project-video-hero h1 .type-line.is-complete::after{content:'';display:inline-block;width:.035em;height:.78em;margin-left:.06em;background:currentColor;vertical-align:-.04em;animation:typeCursor .72s steps(1,end) infinite}
 @keyframes typeCursor{50%{opacity:0}}
 .project-video-hero-copy p{margin:22px 0 0;color:rgba(255,255,255,.62);font-family:'NATS',sans-serif!important;font-size:12px;font-style:normal;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
 .project-video-hero+.selected-work-grid{position:relative;margin-top:-56px;padding-top:56px;background:#050505}
@@ -2284,7 +2284,7 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
 }
 
 @media(prefers-reduced-motion:reduce){
-  .project-video-hero h1 .type-line.is-typing::after{display:none}
+  .project-video-hero h1 .type-line.is-typing::after,.project-video-hero h1 .type-line.is-complete::after{display:none}
   .project-glass-panel{transition:none}
   .project-dialog-gallery-track{animation:none}
 }

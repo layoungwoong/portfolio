@@ -85,7 +85,7 @@
     </video>
     <div class="project-video-hero-shade"></div>
     <div class="project-video-hero-copy">
-      <h1 aria-label="Let's make somthing REAL."><span class="type-line" data-text="Let's"></span><span class="type-line" data-text="make somthing"></span><span class="type-line type-line-accent" data-text="REAL."></span></h1>
+      <h1 aria-label="Let's make somthing Real."><span class="type-line" data-text="Let's"></span><span class="type-line" data-text="make somthing"></span><span class="type-line type-line-accent" data-text="Real."></span></h1>
       <p>Take a closer look below.</p>
     </div>
   </section>
@@ -491,6 +491,7 @@
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(reducedMotion){
       lines.forEach(line=>line.textContent=line.dataset.text || '');
+      lines[lines.length - 1].classList.add('is-complete');
       return;
     }
     const wait = ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -506,6 +507,7 @@
         line.classList.remove('is-typing');
         await wait(190);
       }
+      lines[lines.length - 1].classList.add('is-complete');
     })();
   })();
 
