@@ -46,7 +46,7 @@
 .hero-wordmark{
   position:relative;z-index:1;margin:0;padding:.16em .08em .22em;
   font-family:'Eight One',sans-serif!important;font-size:clamp(88px,16vw,252px);font-weight:400;line-height:.78;letter-spacing:-.025em;
-  color:#000;white-space:nowrap;opacity:1
+  color:#000;white-space:nowrap;opacity:1;mix-blend-mode:overlay
 }
 .cassette-stage{
   --proximity:0;position:absolute;inset:8% 15% 5%;z-index:4;display:grid!important;place-items:center;padding:0!important;border:0!important;
@@ -1055,7 +1055,6 @@ html.has-custom-cursor, html.has-custom-cursor *{ cursor:none !important; }
 .portfolio-page #career .page-hero-outer,.portfolio-page #career .page-section,.portfolio-page #career .job{border-top:0!important;border-bottom:0!important}
 .project-video-hero h1 span{display:block}
 .project-video-hero h1 .type-line{min-height:1.02em}
-.project-video-hero h1 .type-line-accent{color:var(--enter-red)}
 .project-video-hero h1 .type-line.is-typing::after,.project-video-hero h1 .type-line.is-complete::after{content:'';display:inline-block;width:.035em;height:.78em;margin-left:.06em;background:currentColor;vertical-align:-.04em;animation:typeCursor .72s steps(1,end) infinite}
 @keyframes typeCursor{50%{opacity:0}}
 .project-video-hero-copy p{margin:22px 0 0;color:rgba(255,255,255,.62);font-family:'NATS',sans-serif!important;font-size:12px;font-style:normal;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
@@ -1197,6 +1196,11 @@ html.has-custom-cursor .photo-gallery-lightbox,html.has-custom-cursor .photo-gal
 .job>.job-list{padding-top:39px}
 .job-list > li{ margin-bottom:22px; }
 .job-list > li:last-child{ margin-bottom:0; }
+.freelance-job .job-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.freelance-job .job-list>li{display:flex;min-width:0;min-height:132px;margin:0;padding:18px;flex-direction:column;justify-content:space-between;gap:18px;background:rgba(255,255,255,.035);border-radius:8px}
+.freelance-client-logo{display:flex;height:42px;align-items:center;justify-content:flex-start}
+.freelance-client-logo img{display:block;width:auto;max-width:150px;max-height:38px;object-fit:contain;object-position:left center}
+.freelance-job .job-item-desc{font-size:11px;line-height:1.45}
 .job-item-title{ font-weight:700; font-size:15.5px; margin-bottom:6px; }
 .job-item-title .when{ font-family:'SUIT', sans-serif; font-weight:400; font-size:12px; color:var(--text-faint); margin-left:10px; }
 .job-item-desc{ font-size:14px; color:var(--text-muted); max-width:640px; }
@@ -1736,6 +1740,7 @@ body.portfolio-page{
   .em-symbol-row small{ display:none; }
   .em-nav{ width:94vw; margin-top:32px; grid-template-columns:1.6fr 1fr 1fr; }
   .wrap{ padding:0 28px; }
+  .project-video-hero+.selected-work-grid{padding-bottom:72px}
   .subnav{ padding:20px 28px; }
   .audio-label{display:none}
   .hero-photo{ left:28px; right:28px; }
@@ -2247,11 +2252,11 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
 
 @media(max-width:760px){
   .about-classic-hero-copy{display:grid}
-  .about-three-grid{gap:84px;padding-top:108px;padding-bottom:92px}
+  .about-three-grid{gap:56px;padding-top:48px;padding-bottom:48px}
   .about-three-card{width:100%;padding:20px}
-  .about-journey-card{min-height:500px}
-  .about-toolset-card{min-height:390px}
-  .about-three-card.afterwork-section{min-height:490px;padding:20px}
+  .about-journey-card,.about-toolset-card,.about-three-card.afterwork-section{min-height:0}
+  .about-three-card.afterwork-section{padding:20px}
+  .about-three-card .section-head{position:static;transform:none;margin:0 0 18px;white-space:normal}
   .about-three-card .aw-carousel-wrap{margin-left:-20px;margin-right:-20px}
   .project-video-hero{height:72vh;min-height:480px}
   .project-video-hero h1{font-size:clamp(34px,10vw,60px)}
@@ -2263,7 +2268,7 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
   .about-feature-stack--middle,.about-feature-stack--right{grid-template-rows:auto}
   .about-profile-card,.about-channel-card,.about-software-card,.about-details-card{min-height:300px}
   .emblem-family,.emblem-process{grid-template-columns:1fr;gap:34px}
-  .selected-work-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 14px}
+  .selected-work-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 14px;padding-bottom:72px}
   .project-inline-detail{margin-top:-15px}
   .project-inline-detail.is-open{margin-top:0}
   .connect-feature{grid-template-columns:1fr;gap:28px}
@@ -2277,10 +2282,11 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
   .emblem-product-heading small{white-space:nowrap;text-align:right}
   .emblem-material-grid,.emblem-material-grid.is-four,.emblem-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .job>.job-list{padding-top:0}
-  .portfolio-page .unified-section{padding-bottom:56px}
-  .portfolio-page .unified-section+.unified-section{padding-top:56px}
-  .portfolio-page #about .about-three-grid{padding-bottom:72px}
-  .portfolio-page #career .page-section{padding-bottom:64px}
+  .portfolio-page .unified-section{min-height:0;padding-bottom:36px}
+  .portfolio-page .unified-section+.unified-section{padding-top:36px}
+  .portfolio-page #about .about-three-grid{padding-bottom:44px}
+  .portfolio-page #career .page-section{padding-bottom:48px}
+  .freelance-job .job-list{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -2290,18 +2296,17 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
 }
 
 @media(max-width:480px){
-  .about-three-grid{gap:80px;padding-top:104px;padding-bottom:84px}
+  .about-three-grid{gap:48px;padding-top:42px;padding-bottom:42px}
   .about-three-card{width:100%;height:auto;aspect-ratio:auto;min-height:0;padding:16px}
-  .about-journey-card{min-height:480px}
-  .about-toolset-card{min-height:360px}
-  .about-three-card.afterwork-section{min-height:470px;padding:16px}
+  .about-journey-card,.about-toolset-card,.about-three-card.afterwork-section{min-height:0}
+  .about-three-card.afterwork-section{padding:16px}
   .about-three-card .aw-carousel-wrap{margin-left:-16px;margin-right:-16px}
   #about .photo-gallery-section{padding-top:64px}
   .about-feature-board{padding-top:20px}
   .about-feature-card{border-radius:14px}
   .about-channel-thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}
   .about-timeline-list span{display:block}.about-timeline-list small{display:block;margin-top:3px;text-align:left}
-  .selected-work-grid{grid-template-columns:1fr;gap:34px;padding-left:20px;padding-right:20px}
+  .selected-work-grid{grid-template-columns:1fr;gap:34px;padding-left:20px;padding-right:20px;padding-bottom:72px}
   .project-inline-detail{margin-top:-14px}
   .project-inline-detail.is-open{margin-top:0}
   .project-dialog-copy{padding:22px 20px 25px}
@@ -2360,7 +2365,9 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
   .skills-grid{ grid-template-columns:1fr; }
   .about-classic-hero-copy .page-title{font-size:clamp(30px,10vw,42px);line-height:1.08}
   .about-classic-hero-copy .page-desc{font-size:15px;line-height:1.55}
-  .about-three-card .section-head{top:-46px}
+  .about-three-card .section-head{position:static;transform:none;margin-bottom:16px}
+  .freelance-job .job-list{grid-template-columns:1fr;gap:10px}
+  .freelance-job .job-list>li{min-height:112px;padding:15px}
   .emblem-product-heading{grid-template-columns:26px minmax(0,1fr);gap:7px}
   .emblem-product-heading h4{font-size:20px}
   .emblem-product-heading small{grid-column:2;text-align:left;margin-top:-5px}
