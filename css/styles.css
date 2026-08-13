@@ -20,7 +20,6 @@
 @font-face{font-family:'NATS';src:local('NATS Regular'),url('../fonts/NATS-Regular.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:'Playfair Display Local';src:url('../fonts/PlayfairDisplay-Italic.ttf') format('truetype');font-style:italic;font-weight:400;font-display:swap}
 @font-face{font-family:'Milker';src:url('../fonts/Milker.otf') format('opentype');font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:'Eight One';src:url('../fonts/Eight-One.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
 
 .portfolio-section-anchor{scroll-margin-top:72px}
 .unified-section{min-height:50vh;border-top:1px solid var(--line)}
@@ -44,9 +43,8 @@
 .hero-kicker{position:absolute;left:50%;bottom:43px;z-index:5;transform:translateX(-50%);padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;font-size:13px!important;font-weight:400!important;letter-spacing:.05em!important;color:#fff;white-space:nowrap}
 .hero-wordmark-frame{position:absolute;left:50%;top:50%;z-index:1;width:100vw;height:clamp(180px,25vw,380px);transform:translate(-50%,-53%);display:grid;place-items:center;overflow:visible}
 .hero-wordmark{
-  position:relative;z-index:1;display:flex;justify-content:center;gap:.42em;margin:0;padding:.16em .08em .22em;
-  font-family:'Eight One',sans-serif!important;font-size:clamp(88px,16vw,252px);font-weight:400;line-height:.78;letter-spacing:-.025em;
-  color:#000;white-space:nowrap;opacity:1;mix-blend-mode:normal
+  position:relative;z-index:1;display:block;width:min(94vw,1600px);height:auto;margin:0;padding:0;
+  color:#000;opacity:1;mix-blend-mode:normal;object-fit:contain
 }
 .cassette-stage{
   --proximity:0;position:absolute;inset:8% 15% 5%;z-index:4;display:grid!important;place-items:center;padding:0!important;border:0!important;
@@ -85,12 +83,11 @@
 .cassette-stage.is-entering .earphone-cable{transform:translate3d(-52px,8px,24px) rotate(4deg)}
 .cassette-stage.is-entering .cassette-object{transition:transform .85s cubic-bezier(.2,.8,.2,1),filter .35s;filter:drop-shadow(0 55px 46px rgba(20,25,22,.45)) brightness(1.08)}
 .cassette-hint{position:absolute;bottom:4%;left:50%;transform:translateX(-50%);font:700 9px/1 'SUIT',sans-serif;letter-spacing:.18em;color:#fff;opacity:1;mix-blend-mode:overlay;white-space:nowrap}
-@media(max-width:700px){.hero-copyright{bottom:14px;font-size:7px}.hero-kicker{left:50%;bottom:34px;font-size:11px!important;padding:0}.hero-wordmark{font-size:19vw}.cassette-stage{inset:12% 3% 3%}.cassette-object{width:min(76vw,400px)}.cassette-hint{bottom:9%}}
+@media(max-width:700px){.hero-copyright{bottom:14px;font-size:7px}.hero-kicker{left:50%;bottom:34px;font-size:11px!important;padding:0}.hero-wordmark{width:96vw}.cassette-stage{inset:12% 3% 3%}.cassette-object{width:min(76vw,400px)}.cassette-hint{bottom:9%}}
 @media(prefers-reduced-motion:reduce){.cassette-object,.earphone-plug,.earphone-cable{transition:none!important}.cassette-reel{animation:none!important}}
 
 /* NATS is the site-wide typeface; the Index PORTFOLIO wordmark remains Termina. */
 body,body *{font-family:'NATS',sans-serif!important}
-.hero-wordmark{font-family:'Eight One',sans-serif!important}
 
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; background:var(--bg); overflow-x:hidden; }
