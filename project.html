@@ -80,7 +80,7 @@
 
   <div class="portfolio-section-anchor" id="project">
   <section class="project-video-hero" aria-label="Selected work introduction">
-    <video autoplay muted loop playsinline preload="metadata">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/hero/project-hero-poster.jpg">
       <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4" type="video/mp4">
     </video>
     <div class="project-video-hero-shade"></div>
@@ -485,6 +485,19 @@
 <script src="js/audio-player.js"></script>
 <script src="js/project-gallery.js?v=contact-section-51"></script>
 <script>
+  (function(){
+    const heroVideo = document.querySelector('.project-video-hero video');
+    if(!heroVideo) return;
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.playsInline = true;
+    const startHeroVideo = ()=>heroVideo.play().catch(()=>{});
+    heroVideo.addEventListener('loadeddata', startHeroVideo, {once:true});
+    document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) startHeroVideo(); });
+    window.addEventListener('pageshow', startHeroVideo);
+    startHeroVideo();
+  })();
+
   (function(){
     const lines = Array.from(document.querySelectorAll('.project-video-hero .type-line'));
     if(!lines.length) return;
