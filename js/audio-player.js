@@ -20,9 +20,9 @@
     const toggle = player.querySelector('[data-audio-toggle]');
     const volume = player.querySelector('[data-audio-volume]');
     const storedVolume = Number(localStorage.getItem(VOLUME_KEY));
-    audio.volume = Number.isFinite(storedVolume) && storedVolume >= 0 && storedVolume <= 1
+    audio.volume = Number.isFinite(storedVolume) && storedVolume > 0 && storedVolume <= 1
       ? storedVolume
-      : 0.55;
+      : 0.2;
     volume.value = String(audio.volume);
 
     async function play(){

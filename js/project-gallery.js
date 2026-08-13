@@ -12,7 +12,7 @@
     },
     {
       category: 'EVENT PREP.', title: 'CLO Student Ambassador', year: '2026',
-      subtitle: 'Campus Program & Content', image: 'images/carousel/clo-student-ambassador-01.jpg',
+      subtitle: 'Campus Program & Content', image: 'images/thumbnails/clo-student-ambassador-new.png',
       description: 'Led visual production and supported on-site operations for a four-month student ambassador program in Seoul. Designed trend-driven visuals and merchandise tailored to university students, while presenting design guidelines and engaging directly with participants.'
     },
     {

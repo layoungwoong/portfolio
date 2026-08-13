@@ -46,7 +46,7 @@
 .hero-wordmark{
   position:relative;z-index:1;margin:0;padding:.16em .08em .22em;
   font-family:'Eight One',sans-serif!important;font-size:clamp(88px,16vw,252px);font-weight:400;line-height:.78;letter-spacing:-.025em;
-  color:rgba(255,255,255,.66);white-space:nowrap;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");background-blend-mode:overlay;-webkit-background-clip:text;background-clip:text;mix-blend-mode:overlay;opacity:.82;filter:contrast(1.22) saturate(1.15)
+  color:#000;white-space:nowrap;opacity:1
 }
 .cassette-stage{
   --proximity:0;position:absolute;inset:8% 15% 5%;z-index:4;display:grid!important;place-items:center;padding:0!important;border:0!important;
@@ -1055,6 +1055,7 @@ html.has-custom-cursor, html.has-custom-cursor *{ cursor:none !important; }
 .portfolio-page #career .page-hero-outer,.portfolio-page #career .page-section,.portfolio-page #career .job{border-top:0!important;border-bottom:0!important}
 .project-video-hero h1 span{display:block}
 .project-video-hero h1 .type-line{min-height:1.02em}
+.project-video-hero h1 .type-line-accent{color:var(--enter-red)}
 .project-video-hero h1 .type-line.is-typing::after{content:'';display:inline-block;width:.035em;height:.78em;margin-left:.06em;background:currentColor;vertical-align:-.04em;animation:typeCursor .72s steps(1,end) infinite}
 @keyframes typeCursor{50%{opacity:0}}
 .project-video-hero-copy p{margin:22px 0 0;color:rgba(255,255,255,.62);font-family:'NATS',sans-serif!important;font-size:12px;font-style:normal;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
@@ -1193,6 +1194,7 @@ html.has-custom-cursor .photo-gallery-lightbox,html.has-custom-cursor .photo-gal
 .job-period, .job-loc{ font-family:'SUIT', sans-serif; font-size:12.5px; color:var(--text-faint); }
 .job-role{ font-size:15px; color:var(--text-muted); margin-top:14px; }
 .job-list{ list-style:none; }
+.job>.job-list{padding-top:39px}
 .job-list > li{ margin-bottom:22px; }
 .job-list > li:last-child{ margin-bottom:0; }
 .job-item-title{ font-weight:700; font-size:15.5px; margin-bottom:6px; }
@@ -1213,7 +1215,11 @@ html.has-custom-cursor .photo-gallery-lightbox,html.has-custom-cursor .photo-gal
 .job-youtube-link:hover{ opacity:.55; }
 
 .extra-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
-.extra-card{ background:var(--bg); padding:32px; }
+.extra-card{position:relative;isolation:isolate;overflow:hidden;background:var(--bg);padding:32px}
+.extra-card::before{content:'';position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;opacity:.52}
+.extra-card::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,5,5,.93),rgba(5,5,5,.52))}
+.extra-card-katusa::before{background-image:url('../images/career-katusa.jpg')}
+.extra-card-volunteer::before{background-image:url('../images/career-volunteer.jpg')}
 .extra-card .job-tagbox{
   margin-bottom:16px;
   background:var(--enter-red);
@@ -1223,6 +1229,8 @@ html.has-custom-cursor .photo-gallery-lightbox,html.has-custom-cursor .photo-gal
 .extra-card h4{ font-family:'SUIT Variable', sans-serif; font-size:18px; margin-bottom:4px; }
 .extra-card .job-period{ margin-bottom:14px; display:block; }
 .extra-card p{ font-size:14px; color:var(--text-muted); }
+.career-specialties{margin:0 0 10px;color:var(--accent);font-size:13px;letter-spacing:.04em}
+.afterwork-keywords{margin:18px 0 4px;color:rgba(255,255,255,.8);font-size:11px;line-height:1.5;letter-spacing:.06em}
 
 /* ---------- projects ---------- */
 .project-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
@@ -2238,7 +2246,7 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
 }
 
 @media(max-width:760px){
-  .about-classic-hero-copy{display:grid}.about-classic-cta{justify-self:start}
+  .about-classic-hero-copy{display:grid}
   .about-three-grid{gap:84px;padding-top:108px;padding-bottom:92px}
   .about-three-card{width:100%;padding:20px}
   .about-journey-card{min-height:500px}
@@ -2264,6 +2272,15 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
   .emblem-section-heading,.emblem-section-heading--process{grid-template-columns:1fr;gap:16px}
   .emblem-section-heading p{max-width:none}
   .emblem-material-card figcaption,.emblem-process-card figcaption{left:18px;bottom:10px;font-size:6px}
+  .emblem-product-heading{grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center}
+  .emblem-product-heading h4{min-width:0;font-size:24px;white-space:nowrap}
+  .emblem-product-heading small{white-space:nowrap;text-align:right}
+  .emblem-material-grid,.emblem-material-grid.is-four,.emblem-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .job>.job-list{padding-top:0}
+  .portfolio-page .unified-section{padding-bottom:56px}
+  .portfolio-page .unified-section+.unified-section{padding-top:56px}
+  .portfolio-page #about .about-three-grid{padding-bottom:72px}
+  .portfolio-page #career .page-section{padding-bottom:64px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -2331,13 +2348,23 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
   .project-index{ flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }
   .project-index a{ flex:0 0 auto; }
   .subnav{ padding:20px 28px; }
-  .subnav-actions{gap:7px}
+  .subnav{padding-left:16px;padding-right:16px}
+  .subnav-actions{gap:5px}
   .audio-player{padding:0 8px;gap:6px}
   .audio-volume-wrap svg,.audio-volume{display:none}
-  .subnav-pill{padding:8px 10px}
+  .subnav-pill{padding:8px 9px;font-size:10px}
   .global-footer{ padding:16px 20px; }
   .gf-links{ gap:14px; width:auto; justify-content:flex-end; }
   .gf-link span{ display:none; }
   .hub-main, .subpage{ padding-bottom:96px; }
   .skills-grid{ grid-template-columns:1fr; }
+  .about-classic-hero-copy .page-title{font-size:clamp(30px,10vw,42px);line-height:1.08}
+  .about-classic-hero-copy .page-desc{font-size:15px;line-height:1.55}
+  .about-three-card .section-head{top:-46px}
+  .emblem-product-heading{grid-template-columns:26px minmax(0,1fr);gap:7px}
+  .emblem-product-heading h4{font-size:20px}
+  .emblem-product-heading small{grid-column:2;text-align:left;margin-top:-5px}
+  .emblem-material-grid,.emblem-material-grid.is-four,.emblem-process-grid{gap:7px}
+  .emblem-process-card figcaption{left:8px;right:5px;bottom:7px;white-space:normal;line-height:1.25}
+  .extra-grid{grid-template-columns:1fr}
 }
