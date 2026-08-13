@@ -124,7 +124,8 @@
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         entry.target.classList.add('in');
-        io.unobserve(entry.target);
+      } else {
+        entry.target.classList.remove('in');
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -44px 0px' }) : null;

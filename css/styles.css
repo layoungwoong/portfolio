@@ -1026,7 +1026,11 @@ html.has-custom-cursor, html.has-custom-cursor *{ cursor:none !important; }
 .about-three-card .afterwork-intro{font-size:12px;line-height:1.55;margin-bottom:5px}
 .about-three-card .afterwork-link{margin-top:6px;font-size:11px}
 .about-three-card .about-stats{gap:8px;margin:14px 0;padding:12px 0}
-.about-three-card .about-stats .item .num{font-size:18px}.about-three-card .about-stats .item .lbl{font-size:7px}
+.about-three-card .about-stats.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));align-items:center}
+.about-three-card .about-stats .item{text-align:center}
+.about-three-card .about-stats .item .num{font-size:28px;line-height:1}
+.about-three-card .about-stats .item .lbl{margin-top:9px;font-size:9px;white-space:nowrap}
+.about-three-card .afterwork-keywords{margin:18px auto 0;color:rgba(255,255,255,.8);font-size:13px;line-height:1.5;letter-spacing:.04em;text-align:center}
 .about-three-card .aw-carousel-wrap{margin:14px 0 0;overflow:visible}
 .about-three-card .aw-carousel{display:block;width:100%;animation:none}
 .about-three-card .aw-carousel .afterwork-card{display:none;width:min(100%,300px);margin:0 auto}
@@ -1196,11 +1200,11 @@ html.has-custom-cursor .photo-gallery-lightbox,html.has-custom-cursor .photo-gal
 .job>.job-list{padding-top:39px}
 .job-list > li{ margin-bottom:22px; }
 .job-list > li:last-child{ margin-bottom:0; }
-.freelance-job .job-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.freelance-job .job-list>li{display:flex;min-width:0;min-height:132px;margin:0;padding:18px;flex-direction:column;justify-content:space-between;gap:18px;background:rgba(255,255,255,.035);border-radius:8px}
-.freelance-client-logo{display:flex;height:42px;align-items:center;justify-content:flex-start}
-.freelance-client-logo img{display:block;width:auto;max-width:150px;max-height:38px;object-fit:contain;object-position:left center}
-.freelance-job .job-item-desc{font-size:11px;line-height:1.45}
+.freelance-job .job-list{display:block}
+.freelance-job .job-list>li{display:block;min-height:0;margin-bottom:22px;padding:0;background:transparent;border-radius:0}
+.freelance-client-logo{display:flex;width:128px;height:26px;margin-bottom:7px;align-items:center;justify-content:flex-start}
+.freelance-client-logo img{display:block;width:auto;max-width:112px;max-height:24px;object-fit:contain;object-position:left center}
+.freelance-job .job-item-desc{font-size:14px;line-height:1.5}
 .job-item-title{ font-weight:700; font-size:15.5px; margin-bottom:6px; }
 .job-item-title .when{ font-family:'SUIT', sans-serif; font-weight:400; font-size:12px; color:var(--text-faint); margin-left:10px; }
 .job-item-desc{ font-size:14px; color:var(--text-muted); max-width:640px; }
@@ -2253,7 +2257,7 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
 @media(max-width:760px){
   .about-classic-hero-copy{display:grid}
   .about-three-grid{gap:56px;padding-top:48px;padding-bottom:48px}
-  .about-three-card{width:100%;padding:20px}
+  .about-three-card{width:100%;padding:28px 20px 20px}
   .about-journey-card,.about-toolset-card,.about-three-card.afterwork-section{min-height:0}
   .about-three-card.afterwork-section{padding:20px}
   .about-three-card .section-head{position:static;transform:none;margin:0 0 18px;white-space:normal}
@@ -2286,7 +2290,6 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
   .portfolio-page .unified-section+.unified-section{padding-top:36px}
   .portfolio-page #about .about-three-grid{padding-bottom:44px}
   .portfolio-page #career .page-section{padding-bottom:48px}
-  .freelance-job .job-list{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -2297,7 +2300,7 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
 
 @media(max-width:480px){
   .about-three-grid{gap:48px;padding-top:42px;padding-bottom:42px}
-  .about-three-card{width:100%;height:auto;aspect-ratio:auto;min-height:0;padding:16px}
+  .about-three-card{width:100%;height:auto;aspect-ratio:auto;min-height:0;padding:26px 16px 18px}
   .about-journey-card,.about-toolset-card,.about-three-card.afterwork-section{min-height:0}
   .about-three-card.afterwork-section{padding:16px}
   .about-three-card .aw-carousel-wrap{margin-left:-16px;margin-right:-16px}
@@ -2366,8 +2369,8 @@ html.has-custom-cursor .project-glass-dialog *{cursor:auto!important}
   .about-classic-hero-copy .page-title{font-size:clamp(30px,10vw,42px);line-height:1.08}
   .about-classic-hero-copy .page-desc{font-size:15px;line-height:1.55}
   .about-three-card .section-head{position:static;transform:none;margin-bottom:16px}
-  .freelance-job .job-list{grid-template-columns:1fr;gap:10px}
-  .freelance-job .job-list>li{min-height:112px;padding:15px}
+  .freelance-client-logo{width:118px;height:24px}
+  .freelance-client-logo img{max-width:104px;max-height:22px}
   .emblem-product-heading{grid-template-columns:26px minmax(0,1fr);gap:7px}
   .emblem-product-heading h4{font-size:20px}
   .emblem-product-heading small{grid-column:2;text-align:left;margin-top:-5px}
