@@ -195,6 +195,11 @@
     }
   ];
 
+  projects.unshift(projects.splice(2, 1)[0]);
+  projects[0].heroImage = 'images/thumbnails/clo-student-ambassador-new.png';
+  projects[0].subtitle = 'One concept, two visual languages for a student ambassador program.';
+  projects[1].subtitle = 'A 3D garment translated into a key visual, hero film, and event environment.';
+  projects[2].subtitle = 'Defining the creative direction and bringing it to life through visuals and merchandise.';
   const grid = document.getElementById('selectedWorkGrid');
   const dialog = document.getElementById('projectGlassDialog');
   if (!grid || !dialog) return;
@@ -289,10 +294,24 @@
   description.after(projectLink);
   meta.before(connectShowcase);
   meta.before(emblemShowcase);
+  const caseStudy = document.createElement('div');
+  caseStudy.className = 'case-study';
+  panel.appendChild(caseStudy);
+  // Keep a video poster visible until YouTube confirms the player is ready.
+  window.addEventListener('message', event => {
+    const player = media.querySelector('iframe');
+    if (!player || event.source !== player.contentWindow || !/^https:\/\/(www\.)?youtube(-nocookie)?\.com$/.test(event.origin)) return;
+    let data;
+    try { data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data; } catch { return; }
+    if (data?.event === 'onReady' || data?.event === 'infoDelivery' && data.info?.playerState !== undefined) {
+      media.classList.add('player-ready');
+    }
+  });
   let activeCard = null;
   let closeTimer = null;
   let galleryFrame = null;
   let emblemVideoObserver = null;
+  let caseStudyObserver = null;
 
   function columnCount() {
     return getComputedStyle(grid).gridTemplateColumns.split(' ').length;
@@ -310,14 +329,51 @@
   }
 
   function openProject(project, sourceCard) {
+    clearTimeout(closeTimer);
+    placeAfterRow(sourceCard);
     destroyConnectCarousels();
+    const study = window.portfolioCaseStudies?.[project.title];
+    caseStudyObserver?.disconnect();
+    caseStudyObserver = null;
+    caseStudy.innerHTML = study || '';
+    caseStudy.hidden = !study;
+    description.hidden = Boolean(study);
+    if (study) {
+      media.after(panel.querySelector('.project-dialog-copy'));
+      caseStudy.after(gallery);
+    } else {
+      loopMedia.after(gallery);
+      gallery.after(panel.querySelector('.project-dialog-copy'));
+    }
+    panel.classList.toggle('has-case-study', Boolean(study));
     panel.classList.toggle('is-connect-project', Boolean(project.features));
     panel.classList.toggle('is-emblem-project', Boolean(project.emblems));
+    media.classList.remove('player-ready', 'has-video-poster');
     if (project.video || project.playlist) {
       const source = project.playlist
         ? `https://www.youtube.com/embed/videoseries?list=${project.playlist}&autoplay=1&mute=1&playsinline=1&rel=0`
         : `https://www.youtube.com/embed/${project.video}?autoplay=1&mute=1&playsinline=1&rel=0`;
-      media.innerHTML = `<iframe src="${source}" title="${project.title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      media.replaceChildren();
+      const player = document.createElement('iframe');
+      player.title = project.title;
+      player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      player.allowFullscreen = true;
+      player.referrerPolicy = 'strict-origin-when-cross-origin';
+      media.appendChild(player);
+      const directSummitPlayer = project.title === 'CLO Summit NY' || project.title === 'Marvelous Designer User Summit';
+      player.src = directSummitPlayer ? source : `${source}&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
+      if (project.video && !directSummitPlayer) {
+        media.classList.add('has-video-poster');
+        const poster = document.createElement('div');
+        poster.className = 'project-video-poster';
+        poster.innerHTML = `<img src="https://img.youtube.com/vi/${project.video}/hqdefault.jpg" alt="${project.title} video preview"><button type="button" aria-label="Play ${project.title} video">▶<span>PLAY FILM</span></button><a href="https://www.youtube.com/watch?v=${project.video}" target="_blank" rel="noopener noreferrer">WATCH ON YOUTUBE ↗</a>`;
+        poster.querySelector('button').addEventListener('click', () => {
+          poster.querySelector('button span').textContent = 'RETRY PLAY';
+          player.src = `${source}&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
+        });
+        media.appendChild(poster);
+        player.addEventListener('load', () => player.contentWindow?.postMessage(JSON.stringify({event:'listening',id:'portfolio-hero'}), 'https://www.youtube.com'));
+      }
       media.hidden = false;
     } else if (project.heroImage) {
       media.innerHTML = `<img src="${project.heroImage}" alt="${project.title}">`;
@@ -437,13 +493,32 @@
     if (activeCard && activeCard !== sourceCard) activeCard.setAttribute('aria-expanded', 'false');
     activeCard = sourceCard;
     activeCard.setAttribute('aria-expanded', 'true');
-    placeAfterRow(sourceCard);
     window.initScrollReveal?.(connectShowcase);
     window.initScrollReveal?.(emblemShowcase);
     if (project.features) initConnectCarousels();
     if (project.emblems) initEmblemVideos();
     inlineDetail.classList.remove('is-closing');
-    requestAnimationFrame(() => requestAnimationFrame(() => inlineDetail.classList.add('is-open')));
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      inlineDetail.classList.add('is-open');
+      initCaseStudyMotion();
+    }));
+  }
+
+  function initCaseStudyMotion() {
+    if (caseStudy.hidden || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const blocks = caseStudy.querySelectorAll(':scope > section > *');
+    caseStudyObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        // Reverse the reveal when scrolling back above a block's entrance.
+        const visible = entry.isIntersecting || entry.boundingClientRect.top < 0;
+        entry.target.classList.toggle('cs-visible', visible);
+      });
+    }, {rootMargin: '0px 0px -7% 0px', threshold: 0});
+    blocks.forEach(block => {
+      block.classList.add('cs-motion');
+      block.classList.toggle('cs-visible', block.getBoundingClientRect().top < window.innerHeight * .93);
+      caseStudyObserver.observe(block);
+    });
   }
 
   function destroyConnectCarousels() {
@@ -569,6 +644,8 @@
 
   function closeProject() {
     if (!inlineDetail.isConnected || inlineDetail.classList.contains('is-closing')) return;
+    caseStudyObserver?.disconnect();
+    caseStudyObserver = null;
     inlineDetail.classList.add('is-closing');
     inlineDetail.classList.remove('is-open');
     activeCard?.setAttribute('aria-expanded', 'false');
@@ -577,6 +654,7 @@
       galleryFrame = null;
       destroyConnectCarousels();
       media.replaceChildren();
+      caseStudy.replaceChildren();
       loopMedia.replaceChildren();
       loopMedia.hidden = true;
       inlineDetail.remove();
