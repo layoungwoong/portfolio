@@ -36,3 +36,28 @@ command or output directory needed.
 
 See [`AGENTS.md`](./AGENTS.md) for a detailed map of the codebase, known
 quirks, and things to avoid re-breaking.
+
+## English / 한국어
+
+The top language control is available on the landing page and portfolio page.
+English is the default. The choice is saved locally and can be shared explicitly
+with `index.html?lang=ko` or `project.html?lang=en#about`.
+
+- `js/translations-ko.js` contains reviewed Korean copy, keyed by the English
+  source text (case and repeated whitespace are ignored).
+- `js/i18n.js` translates muted descriptive copy, explanatory project subheadings and the About greeting
+  (안녕하세요, 라영웅입니다.). The `copySelector` list explicitly defines this scope,
+  including fetched sections and newly opened project details. Project titles, section labels, menus,
+  labels, image captions, accessible names and metadata remain in English.
+  Elements, videos and user-entered form values are preserved.
+- `css/i18n.css` uses Lexend for English and Pretendard for translated Korean
+  copy, with the original italic Playfair display face retained for the hero.
+  The borderless language control uses red text for the selected language.
+  Pretendard Variable v1.3.9 is self-hosted in `fonts/`; its SIL Open Font License
+  is included alongside it.
+- The hero heading remains English in both versions; switching languages does
+  not restart its typing animation.
+
+When editing English descriptions, update the matching translation key as well.
+The language control is marked `data-no-translate` so language names remain
+recognizable in either version. User-entered form values are never translated.
