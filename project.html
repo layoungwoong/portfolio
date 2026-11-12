@@ -33,8 +33,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css?v=career-copy-67">
 <link rel="stylesheet" href="css/i18n.css?v=4">
-<link rel="stylesheet" href="css/tokyo.css?v=2">
-<script src="js/translations-ko.js?v=8" defer></script>
+<link rel="stylesheet" href="css/tokyo.css?v=3">
+<script src="js/translations-ko.js?v=9" defer></script>
 <script src="js/i18n.js?v=7" defer></script>
 </head>
 <body class="portfolio-page">
@@ -493,7 +493,7 @@
 <script src="js/app.js?v=mail-overlay-50"></script>
 <script src="js/audio-player.js"></script>
 <script src="js/project-case-studies.js?v=6"></script>
-<script src="js/project-tokyo.js?v=2"></script>
+<script src="js/project-tokyo.js?v=3"></script>
 <script src="js/project-gallery.js?v=tokyo-1"></script>
 <script>
   (function(){
@@ -731,7 +731,7 @@
   }
 
   Promise.all([
-    loadUnifiedSection('career.html?v=tokyo-sbs-69', 'career'),
+    loadUnifiedSection('career.html?v=career-dates-70', 'career'),
     loadUnifiedSection('about.html?v=journey-spacing-65', 'about')
   ]).then(()=>{
     initAboutSection();
@@ -741,13 +741,47 @@
   });
 
   const sectionLinks = document.querySelectorAll('[data-section-link]');
-  const sectionObserver = new IntersectionObserver(entries=>{
-    const visible = entries.filter(entry=>entry.isIntersecting)
-      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
-    if(!visible) return;
-    sectionLinks.forEach(link=>link.classList.toggle('on', link.dataset.sectionLink === visible.target.id));
-  }, {rootMargin:'-25% 0px -60% 0px', threshold:[0, 0.1]});
-  document.querySelectorAll('.portfolio-section-anchor').forEach(section=>sectionObserver.observe(section));
+  const navSections = [...document.querySelectorAll('.portfolio-section-anchor')];
+  let navFrame = 0;
+  let pendingSection = '';
+  let pendingTimer = 0;
+  function setActiveSection(id){
+    sectionLinks.forEach(link=>{
+      const active = link.dataset.sectionLink === id;
+      link.classList.toggle('on', active);
+      if(active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  function updateSectionNav(){
+    navFrame = 0;
+    const cutoff = (document.querySelector('.subnav')?.getBoundingClientRect().height || 80) + 40;
+    if(pendingSection){
+      const top = document.getElementById(pendingSection)?.getBoundingClientRect().top;
+      if(top > cutoff || top < -40) return;
+      pendingSection = '';
+    }
+    let active = navSections[0]?.id;
+    navSections.forEach(section=>{ if(section.getBoundingClientRect().top <= cutoff) active = section.id; });
+    setActiveSection(active);
+  }
+  function scheduleSectionNav(){ if(!navFrame) navFrame = requestAnimationFrame(updateSectionNav); }
+  function selectSection(id){
+    pendingSection = id;
+    setActiveSection(id);
+    clearTimeout(pendingTimer);
+    pendingTimer = setTimeout(()=>{ pendingSection = ''; scheduleSectionNav(); }, 1600);
+  }
+  sectionLinks.forEach(link=>link.addEventListener('click', ()=>selectSection(link.dataset.sectionLink)));
+  window.addEventListener('scroll', scheduleSectionNav, {passive:true});
+  window.addEventListener('resize', scheduleSectionNav);
+  window.addEventListener('hashchange', ()=>{
+    const id = location.hash.slice(1);
+    if(navSections.some(section=>section.id === id)) selectSection(id);
+  });
+  ['wheel','touchstart'].forEach(type=>window.addEventListener(type, ()=>{ pendingSection = ''; scheduleSectionNav(); }, {passive:true}));
+  new ResizeObserver(scheduleSectionNav).observe(document.querySelector('main.subpage'));
+  scheduleSectionNav();
 </script>
 <script async src="https://www.instagram.com/embed.js"></script>
 </body>
