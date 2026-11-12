@@ -1,0 +1,83 @@
+/* Lexend for English; Pretendard only for translated Korean copy. */
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('../fonts/PretendardVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 2px;
+  padding: 3px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #888;
+}
+.language-switch button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  color: #bdbdbd;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Lexend', 'Pretendard Variable', sans-serif !important;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+.language-switch button[aria-pressed='true'] {background:transparent;color:#ef3b32;}
+.language-switch button:hover {color:#fff;background:transparent;}
+.language-switch button[aria-pressed='true']:hover {color:#ef3b32;background:transparent;}
+.language-switch button:focus-visible {outline:2px solid #ef3b32;outline-offset:4px;}
+.landing-language {position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:70;}
+/* Override legacy NATS/SUIT/Playfair declarations, including !important rules. */
+html[lang] body, html[lang] body * {
+  font-family:'Lexend','Pretendard Variable',sans-serif !important;
+}
+html body .is-korean-copy, html body .is-korean-copy * {
+  font-family:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif !important;
+}
+.is-korean-copy {
+  word-break:keep-all;
+  overflow-wrap:anywhere;
+  letter-spacing:-.02em;
+  line-height:1.8;
+}
+html[lang='ko'] .about-classic-hero-copy .page-title {
+  font-weight:700;
+  font-size:clamp(28px,3.5vw,52px);
+  line-height:1.25;
+  letter-spacing:-.045em;
+}
+/* Preserve the original hero display face in both language versions. */
+html[lang] body .project-video-hero h1,
+html[lang] body .project-video-hero h1 span {
+  font-family:'Playfair Display Local','Playfair Display',Georgia,'Times New Roman',serif!important;
+  font-style:italic!important;
+  font-weight:400!important;
+}
+html body .project-dialog-title {overflow-wrap:anywhere;}
+html body .project-title-bilingual {flex-wrap:wrap;}
+@media(max-width:700px) {
+  .landing-language {top:18px;}
+  .portfolio-page .subnav {display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;padding-top:12px;padding-bottom:12px;}
+  .portfolio-page .subnav-actions {display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;}
+  .portfolio-page .subnav-pills {order:3;}
+  .language-switch button {min-height:36px;padding:0 10px;}
+  .portfolio-page .subnav-pill {min-height:34px;display:flex;align-items:center;}
+}
+@media(max-width:420px) {
+  .portfolio-page .subnav-actions {display:grid;grid-template-columns:1fr auto;}
+  .portfolio-page .audio-player {justify-self:end;}
+  .portfolio-page .subnav-pills {grid-column:1 / -1;justify-self:end;}
+  .portfolio-page .subnav {align-items:start;}
+  .portfolio-page .subnav-home {margin-top:3px;}
+  .portfolio-page .portfolio-section-anchor {scroll-margin-top:112px;}
+}
