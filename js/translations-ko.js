@@ -411,6 +411,32 @@ Object.assign(window.portfolioKorean, {
   "The visual system, in use": "현장에서 완성된 비주얼 시스템",
   "114 of 126 registered guests attended, including participants from 34 enterprise accounts. Across announcements, merchandise, printed materials, and the venue, attendees encountered the same visual identity.": "등록자 126명 중 114명이 참석했고, 34개 엔터프라이즈 계정이 함께했습니다. 공지부터 굿즈, 인쇄물, 행사장까지 참석자가 만나는 모든 접점에 같은 비주얼 아이덴티티를 이어갔습니다.",
   "The story continues after the event": "행사 이후에도 이어지는 이야기",
-  "Prepared Japanese and English recap edits with speaker names and titles, a watermark, and the ending brand motion. A watermark-free version was also delivered.": "일본어·영어 리캡 영상에 연사 이름과 직함, 워터마크, 엔딩 브랜드 모션을 적용하고 워터마크 없는 버전도 납품했습니다.",
-  "— Edited IU fancam footage into a fan tribute built around ten years of lyrics.": "— 아이유 직캠과 10년간의 노랫말을 엮어 팬들의 마음을 전하는 영상으로 편집했습니다."
+  "Hear from the people who were there and experience the energy of the Tokyo summit through interviews and moments from the event.": "참가자들의 인터뷰와 함께, 도쿄 서밋 현장의 생생한 분위기를 만나보세요.",
+  "Edited IU fancam footage into a fan tribute built around ten years of lyrics.": "아이유 직캠과 10년간의 노랫말을 엮어 팬들의 마음을 전하는 영상으로 편집했습니다."
+});
+
+Object.assign(window.portfolioKorean, {
+  "All key visuals and video assets for this project were created with AI using Seedance on Higgsfield.": "이번 프로젝트의 키 비주얼과 영상 비주얼 에셋은 모두 Higgsfield의 Seedance를 활용해 AI로 제작했습니다.",
+  "Created the key visuals and video assets with Seedance on Higgsfield, refining material, color, fabric detail, and movement through AI iterations.": "Higgsfield의 Seedance로 키 비주얼과 영상 비주얼 에셋을 제작하고, AI 결과물을 반복적으로 다듬으며 소재·색감·원단 디테일과 움직임을 완성했습니다."
+});
+
+Object.assign(window.portfolioKorean, {
+  "Direction · merchandise quotes · venue requests · approvals": "방향 설정 · 굿즈 견적 · 행사장 요청 · 승인",
+  "Venue · announcements · print orders · brochure brief · local copy": "행사장 · 공지 · 인쇄 발주 · 브로슈어 브리프 · 현지 카피",
+  "MD simulation · .abc / .fbx / .obj asset handoff": "MD 시뮬레이션 · .abc / .fbx / .obj 에셋 전달",
+  "Key visual · merchandise · print · video": "키 비주얼 · 굿즈 · 인쇄물 · 영상",
+  "Recap · LinkedIn · naming · brand rules": "리캡 · LinkedIn · 네이밍 · 브랜드 가이드",
+  "Keycaps · gym sack · sticker": "키캡 · 짐색 · 스티커",
+  "Print service · brochure printer · venue": "인쇄 서비스 · 브로슈어 인쇄 · 행사장 제작"
+});
+
+Object.assign(window.portfolioKorean, {
+  "Key visual · Merchandise · Print files": "키 비주얼 · 굿즈 · 인쇄 파일",
+  "Direction · Feedback · Alignment": "방향 제안 · 피드백 · 방향 정렬",
+  "Banners · Brochure · Recap film": "배너 · 브로슈어 · 리캡 영상",
+  "Without an on-site visit, I worked closely with the Japan team to carry the design from production in Seoul to the venue in Tokyo.": "현장 방문 없이 일본 팀과 긴밀히 소통하며 서울의 제작물을 도쿄 현장까지 일관되게 전달했습니다.",
+  "Aligned the concept and approvals, presented merchandise designs, and delivered keycap, backing-card, gym-sack, and sticker files with Japanese copy.": "콘셉트와 승인 방향을 조율하고 굿즈 디자인을 제안했습니다. 일본어 카피를 적용한 키캡, 백킹 카드, 짐색, 스티커 제작 파일을 전달했습니다.",
+  "Adapted teasers for X, note, and newsletters; coordinated the brochure brief, local copy, formats, and deadlines; reviewed recap edits, naming, and brand rules.": "X, note, 뉴스레터 규격으로 티저를 제작하고 브로슈어 브리프, 현지 카피, 포맷과 납기를 조율했습니다. 리캡 편집, 네이밍과 브랜드 가이드도 함께 검토했습니다.",
+  "Coordinated asset handoffs and art-direction feedback with the 3D designers, then prepared vendor-ready files for printing and venue applications.": "3D 디자이너와 에셋 전달 및 아트 디렉션 피드백을 조율하고, 인쇄와 행사장 적용을 위한 업체별 제작 파일을 준비했습니다.",
+  "Fit artwork to vendor templates, prepared large-format files and vertical or horizontal versions, and checked linked assets before print production.": "업체별 템플릿에 맞춰 디자인을 적용하고 대형 인쇄 파일과 세로·가로 버전을 준비했습니다. 인쇄 전에 연결된 에셋과 제작 사양을 확인했습니다."
 });
