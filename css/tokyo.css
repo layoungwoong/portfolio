@@ -1,46 +1,72 @@
 .selected-work-number{display:flex;align-items:center;gap:8px;min-height:15px}
 .selected-work-new{display:inline-block;padding:3px 5px;background:#db0000;color:#fff;font-size:8px;font-weight:600;letter-spacing:.06em;line-height:1}
 .project-dialog-media video{display:block;width:100%;height:100%;object-fit:contain}
-.tokyo-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tokyo-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
 .tokyo-case>section{margin-top:44px}
-.tokyo-visual-pair,.tokyo-print-pair,.tokyo-venue-pair,.tokyo-merch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.tokyo-venue-pair{margin-top:16px}
+.tokyo-visual-pair,.tokyo-print-pair,.tokyo-venue-pair,.tokyo-merch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.tokyo-venue-pair{margin-top:0}
 .tokyo-process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:20px var(--cs-gutter);border-top:1px solid #ffffff26}
 .tokyo-process-two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .tokyo-process>div{padding-top:18px;min-width:0}
 .tokyo-case h4{font-size:11px;font-weight:500;letter-spacing:.035em;line-height:1.5;margin:0 0 10px}
 .tokyo-copy{font-size:13px;line-height:1.7;color:#aaa;margin:0;word-break:normal;overflow-wrap:break-word}
 .tokyo-merch>div>div{padding:12px var(--cs-gutter) 8px}
-.tokyo-merch figure img{aspect-ratio:4/5;object-fit:cover}
-.tokyo-print-context{display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:16px;margin-top:24px}
-.tokyo-print-context figure:first-child img{max-height:560px;object-fit:contain}
-.tokyo-network{margin-top:24px;background:#111;border-block:1px solid #ffffff26}
-.tokyo-network>img{display:block;width:100%;height:auto}
-.tokyo-network-labels{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:18px var(--cs-gutter) 24px}
-.tokyo-network-labels>div:last-child{text-align:right}
-.tokyo-network-labels span,.tokyo-network-labels strong{display:block}
-.tokyo-network-labels span{font-size:9px;letter-spacing:.08em;color:#999;margin-bottom:8px}
-.tokyo-network-labels strong{font-size:clamp(12px,1.5vw,19px);font-weight:400}
+.tokyo-merch+ .tokyo-process{margin-inline:0;gap:0;padding:0 var(--cs-gutter)}
+.tokyo-merch+ .tokyo-process>div:first-child{padding-right:var(--cs-gutter)}
+.tokyo-merch+ .tokyo-process>div:last-child{padding-left:var(--cs-gutter)}
+.tokyo-merch figure img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;object-position:50% 90%}
+.tokyo-merch>div:nth-child(2) figure img{object-position:50% 55%}
+.tokyo-print-context{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:0;margin-top:20px}
+.tokyo-print-context figure:first-child img{aspect-ratio:1;object-fit:cover;object-position:50% 35%}
 .tokyo-recap{position:relative;aspect-ratio:16/9;background:#111;isolation:isolate}
 .tokyo-recap>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;z-index:-1}
 .tokyo-recap>div{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:linear-gradient(transparent,#0006)}
 .tokyo-recap strong{font-size:clamp(18px,3vw,34px);font-weight:400;letter-spacing:.04em}
 .tokyo-recap span{font-size:10px;letter-spacing:.12em;color:#bbb}
 .tokyo-recap .tokyo-play-symbol{font-size:38px;color:#db0000;line-height:1}
-.job-sasim-line>a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+/* Optional source images are opened with explicit controls, never photo overlays. */
+.tokyo-image-actions{display:flex;flex-wrap:wrap;gap:12px;margin:18px var(--cs-gutter)}
+.tokyo-image-button{display:inline-flex;gap:8px;align-items:center;border:1px solid #ffffff36;background:transparent;color:#ddd;padding:9px 11px;font:400 9px Lexend,sans-serif;letter-spacing:.04em;cursor:pointer}
+.tokyo-image-button:hover,.tokyo-image-button:focus-visible{border-color:#db0000;color:#fff}
+.tokyo-case figcaption .tokyo-image-button{display:flex;width:max-content;max-width:100%;margin-top:9px}
+.tokyo-channel-list{margin:14px var(--cs-gutter) 0}
+.tokyo-channel-list>div{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 0;border-top:1px solid #ffffff26}
+.tokyo-channel-list>div>span{color:#db0000;font-size:9px;letter-spacing:.04em;padding-top:3px}
+.tokyo-channel-list h4{font-family:Lexend,sans-serif;font-size:12px;margin-bottom:7px}
+.tokyo-case .cs-network-details p,.tokyo-channel-list p{font-family:Lexend,'Pretendard Variable',sans-serif}
+.tokyo-viewer{width:calc(100vw - 32px);height:calc(100dvh - 32px);max-width:none;max-height:none;margin:auto;padding:0;border:1px solid #ffffff30;background:#111;color:#eee;overflow:hidden}
+.tokyo-viewer[open]{display:flex;flex-direction:column}
+.tokyo-viewer::backdrop{background:#000d;backdrop-filter:blur(12px)}
+.tokyo-viewer-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;border-bottom:1px solid #ffffff26;flex-shrink:0}
+.tokyo-viewer-caption{font-size:10px;letter-spacing:.05em;line-height:1.5}
+.tokyo-viewer-toolbar>div{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.tokyo-viewer button,.tokyo-viewer a{display:inline-flex;justify-content:center;align-items:center;min-width:36px;height:36px;padding:0 8px;border:1px solid #ffffff30;background:transparent;color:#fff;font:400 11px Lexend,sans-serif;text-decoration:none}
+.tokyo-viewer button[data-action="in"],.tokyo-viewer button[data-action="out"],.tokyo-viewer button[data-action="close"]{font-size:22px}
+.tokyo-viewer button[data-action="close"]{background:#db0000;border-color:#db0000}
+.tokyo-viewer button:disabled{opacity:.3}
+.tokyo-viewer output{font-size:11px;min-width:42px;text-align:center}
+.tokyo-viewer-stage{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+.tokyo-viewer-canvas{display:grid;place-items:center;width:max-content;min-width:100%;min-height:100%}
+.tokyo-viewer img{display:block;max-width:none;max-height:none;object-fit:contain}
+html.has-custom-cursor .tokyo-viewer,html.has-custom-cursor .tokyo-viewer *{cursor:auto!important}
+html.has-custom-cursor .tokyo-viewer button,html.has-custom-cursor .tokyo-viewer a{cursor:pointer!important}
+@media(prefers-reduced-motion:no-preference){.tokyo-viewer[open]{animation:tokyo-viewer-in .2s ease-out}@keyframes tokyo-viewer-in{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}}
 @media(max-width:700px){
+  .tokyo-viewer{width:calc(100vw - 16px);height:calc(100dvh - 16px)}
+  .tokyo-viewer-toolbar{align-items:stretch;flex-direction:column;gap:8px;padding:10px}
+  .tokyo-viewer-toolbar>div{justify-content:flex-end;gap:6px}
+  .tokyo-viewer-caption{font-size:9px}
   .tokyo-stats{grid-template-columns:1fr 1fr;gap:18px}
   .tokyo-stats>div{display:block}
   .tokyo-stats dt{margin-bottom:5px;font-size:8px}
   .tokyo-case>section{margin-top:32px}
-  .tokyo-visual-pair,.tokyo-print-pair,.tokyo-print-context{grid-template-columns:1fr;gap:8px}
+  .tokyo-visual-pair,.tokyo-print-pair,.tokyo-print-context{grid-template-columns:1fr;gap:0}
   .tokyo-process,.tokyo-process-two{grid-template-columns:1fr;gap:18px}
   .tokyo-process>div+div{border-top:1px solid #ffffff1a}
-  .tokyo-merch{grid-template-columns:1fr;gap:24px}
-  .tokyo-merch figure img{max-height:540px;object-fit:contain}
-  .tokyo-venue-pair{gap:8px}
+  .tokyo-merch{grid-template-columns:1fr;gap:20px}
+  .tokyo-venue-pair{gap:0}
   .tokyo-venue-pair figcaption{font-size:8px;padding-left:10px;padding-right:10px}
   .tokyo-copy{font-size:12px}
-  .tokyo-network-labels{gap:12px}
-  .tokyo-network-labels span{font-size:8px;line-height:1.5}
+  .tokyo-channel-list>div{grid-template-columns:1fr;gap:8px}
+  .tokyo-merch+ .tokyo-process>div:first-child,.tokyo-merch+ .tokyo-process>div:last-child{padding-left:0;padding-right:0}
 }
