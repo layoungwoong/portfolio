@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,16 +24,19 @@
 <link rel="apple-touch-icon" href="favicon.png?v=cube-2">
 <script>
   if (window.top === window.self) {
-    location.replace('project.html#about');
+    location.replace('project.html' + location.search + '#about');
   }
   if (sessionStorage.getItem('hasEntered') !== '1') {
-    location.replace('index.html');
+    location.replace('index.html' + location.search);
   }
 </script>
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css?v=career-copy-67">
+<link rel="stylesheet" href="css/i18n.css?v=4">
+<script src="js/translations-ko.js?v=6" defer></script>
+<script src="js/i18n.js?v=5" defer></script>
 </head>
 <body>
 
@@ -69,6 +72,11 @@
 <main class="subpage">
   <nav class="subnav">
     <a class="subnav-back" href="index.html">LA YOUNGWOONG</a>
+    <div class="language-switch" role="group" aria-label="Language / 언어" data-no-translate>
+      <button type="button" data-language="en" lang="en" aria-label="English version" aria-pressed="true">EN</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-language="ko" lang="ko" aria-label="한국어 버전" aria-pressed="false">한국어</button>
+    </div>
     <div class="subnav-pills">
       <a class="subnav-pill" href="project.html#project">Project</a>
       <a class="subnav-pill" href="project.html#career">Career</a>
