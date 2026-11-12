@@ -283,6 +283,7 @@
   close.hidden = true;
   close.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
   function positionClose() {
+    close.style.right = `${Math.max(16, (window.innerWidth - grid.getBoundingClientRect().right) + 14)}px`;
     close.style.top = `${(document.querySelector('.subnav')?.getBoundingClientRect().height || 80) + 16}px`;
   }
   window.addEventListener('resize', positionClose);
