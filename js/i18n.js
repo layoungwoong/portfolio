@@ -23,7 +23,7 @@
     '.cs-student-grid figcaption span', '.cs-collection-summary p',
     '.cs-network-details p', '.connect-feature-copy p', '.emblem-section-heading p',
     '.cs-heading h3', '.emblem-section-heading h3',
-    '.cs-collection-summary h4',
+    '.cs-collection-summary h4', '.tokyo-copy', '.cs-quote-list blockquote p', '.cs-quote-list cite',
     '.project-video-hero-copy > p', '.about-classic-hero-copy .page-title',
     '.about-feature-intro h1'
   ].join(',');

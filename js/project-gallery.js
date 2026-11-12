@@ -114,11 +114,6 @@
       }
     },
     {
-      category: 'YOUTUBE', title: '사심인가', year: '',
-      subtitle: 'IU Video Project', image: 'https://img.youtube.com/vi/icSTh7wg2fQ/hqdefault.jpg', video: 'icSTh7wg2fQ',
-      description: "An original Inkigayo video project edited from IU fancam footage. The video brought together lyrics from IU's 10-year career to express the heartfelt messages of her fans."
-    },
-    {
       category: 'SNS MARKETING', title: 'CONNECT Instagram', year: '2026',
       subtitle: 'Editorial Curation & Social Media Content', image: 'images/connect/connect-instagram-thumbnail-2.jpg',
       description: 'Produced Instagram editorial content for CONNECT, a digital fashion asset marketplace, curating assets available on the platform and spotlighting artwork created with digital garment-making software.',
@@ -200,6 +195,12 @@
   projects[0].subtitle = 'One concept, two visual languages for a student ambassador program.';
   projects[1].subtitle = 'A 3D garment translated into a key visual, hero film, and event environment.';
   projects[2].subtitle = 'Defining the creative direction and bringing it to life through visuals and merchandise.';
+  projects.unshift({
+    category: 'EVENT PREP.', title: 'Marvelous Designer User Summit Tokyo', year: '2026', isNew: true,
+    subtitle: 'A visual identity carried from Seoul to every touchpoint in Tokyo.',
+    image: 'images/tokyo/key-visual.jpg', heroVideo: 'images/tokyo/opening.mp4',
+    heroImage: 'images/tokyo/wrapped-visual.jpg', description: ''
+  });
   const grid = document.getElementById('selectedWorkGrid');
   const dialog = document.getElementById('projectGlassDialog');
   if (!grid || !dialog) return;
@@ -250,7 +251,7 @@
     const thumbnail = project.thumbnail
       ? `<img src="${project.thumbnail}" alt="" loading="lazy">`
       : '';
-    button.innerHTML = `<span class="selected-work-number">${String(index + 1).padStart(2, '0')}</span><span class="selected-work-thumb${project.thumbnail ? '' : ' is-empty'}">${thumbnail}</span>`;
+    button.innerHTML = `<span class="selected-work-number">${String(index + 1).padStart(2, '0')}${project.isNew ? '<span class="selected-work-new" data-no-translate>NEW</span>' : ''}</span><span class="selected-work-thumb${project.thumbnail ? '' : ' is-empty'}">${thumbnail}</span>`;
     button.addEventListener('click', () => openProject(project, button));
     grid.appendChild(button);
     return button;
@@ -349,7 +350,11 @@
     panel.classList.toggle('is-connect-project', Boolean(project.features));
     panel.classList.toggle('is-emblem-project', Boolean(project.emblems));
     media.classList.remove('player-ready', 'has-video-poster');
-    if (project.video || project.playlist) {
+    if (project.heroVideo) {
+      media.innerHTML = `<video controls autoplay muted loop playsinline preload="metadata" poster="${project.heroImage}" aria-label="${project.title} opening film"><source src="${project.heroVideo}" type="video/mp4"></video>`;
+      media.hidden = false;
+      media.querySelector('video').play().catch(() => {});
+    } else if (project.video || project.playlist) {
       const source = project.playlist
         ? `https://www.youtube.com/embed/videoseries?list=${project.playlist}&autoplay=1&mute=1&playsinline=1&rel=0`
         : `https://www.youtube.com/embed/${project.video}?autoplay=1&mute=1&playsinline=1&rel=0`;
@@ -506,7 +511,7 @@
 
   function initCaseStudyMotion() {
     if (caseStudy.hidden || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const blocks = caseStudy.querySelectorAll(':scope > section > *');
+    const blocks = caseStudy.querySelectorAll(':scope > section > *, .tokyo-case > section > *');
     caseStudyObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         // Reverse the reveal when scrolling back above a block's entrance.
@@ -522,6 +527,7 @@
   }
 
   function destroyConnectCarousels() {
+    media.querySelector('video')?.pause();
     loopMedia.querySelector('video')?.pause();
     connectShowcase.querySelectorAll('video').forEach(video => video.pause());
     emblemVideoObserver?.disconnect();
