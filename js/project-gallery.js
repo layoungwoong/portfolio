@@ -278,6 +278,14 @@
   const description = panel.querySelector('#projectDialogDescription');
   const meta = panel.querySelector('#projectDialogMeta');
   const close = panel.querySelector('[data-project-dialog-close]');
+  document.body.appendChild(close);
+  close.classList.add('project-floating-close');
+  close.hidden = true;
+  close.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  function positionClose() {
+    close.style.top = `${(document.querySelector('.subnav')?.getBoundingClientRect().height || 80) + 16}px`;
+  }
+  window.addEventListener('resize', positionClose);
   const projectLink = document.createElement('a');
   const connectShowcase = document.createElement('div');
   const emblemShowcase = document.createElement('div');
@@ -497,6 +505,8 @@
     clearTimeout(closeTimer);
     if (activeCard && activeCard !== sourceCard) activeCard.setAttribute('aria-expanded', 'false');
     activeCard = sourceCard;
+    positionClose();
+    close.hidden = false;
     activeCard.setAttribute('aria-expanded', 'true');
     window.initScrollReveal?.(connectShowcase);
     window.initScrollReveal?.(emblemShowcase);
@@ -652,6 +662,10 @@
     if (!inlineDetail.isConnected || inlineDetail.classList.contains('is-closing')) return;
     caseStudyObserver?.disconnect();
     caseStudyObserver = null;
+    close.hidden = true;
+    const returnCard = activeCard;
+    returnCard?.focus({preventScroll:true});
+    returnCard?.scrollIntoView({block:'center',behavior:'smooth'});
     inlineDetail.classList.add('is-closing');
     inlineDetail.classList.remove('is-open');
     activeCard?.setAttribute('aria-expanded', 'false');
@@ -670,4 +684,7 @@
   }
 
   close.addEventListener('click', closeProject);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !document.querySelector('dialog[open]') && !close.hidden) closeProject();
+  });
 })();

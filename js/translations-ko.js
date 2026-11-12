@@ -20,7 +20,7 @@ window.portfolioKorean = {
   "Next": "다음",
   "Close": "닫기",
   "CLOSE ×": "닫기 ×",
-  "Take a closer look below.": "아래에서 작업을 자세히 살펴보세요.",
+  "Click a project to explore more of my work.": "프로젝트를 클릭해 더 다양한 작업을 살펴보세요.",
   "Hi, I'm La Youngwoong!": "안녕하세요, 라영웅입니다.",
   "A Seoul-based creative generalist shaping brand content, 3D experiences, and story-first campaigns. Moving between strategy and hands-on production, I turn ideas into visual systems that feel clear, memorable, and ready to meet an audience.": "서울을 기반으로 브랜드 콘텐츠와 3D 경험, 이야기가 중심이 되는 캠페인을 만드는 크리에이티브 제너럴리스트입니다. 전략 수립부터 실제 제작까지, 아이디어를 명확하고 기억에 남는 비주얼로 구체화해 사람들과 연결합니다.",
   "JOURNEY": "지나온 여정",
