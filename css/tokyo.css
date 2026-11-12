@@ -1,0 +1,46 @@
+.selected-work-number{display:flex;align-items:center;gap:8px;min-height:15px}
+.selected-work-new{display:inline-block;padding:3px 5px;background:#db0000;color:#fff;font-size:8px;font-weight:600;letter-spacing:.06em;line-height:1}
+.project-dialog-media video{display:block;width:100%;height:100%;object-fit:contain}
+.tokyo-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tokyo-case>section{margin-top:44px}
+.tokyo-visual-pair,.tokyo-print-pair,.tokyo-venue-pair,.tokyo-merch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tokyo-venue-pair{margin-top:16px}
+.tokyo-process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:20px var(--cs-gutter);border-top:1px solid #ffffff26}
+.tokyo-process-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tokyo-process>div{padding-top:18px;min-width:0}
+.tokyo-case h4{font-size:11px;font-weight:500;letter-spacing:.035em;line-height:1.5;margin:0 0 10px}
+.tokyo-copy{font-size:13px;line-height:1.7;color:#aaa;margin:0;word-break:normal;overflow-wrap:break-word}
+.tokyo-merch>div>div{padding:12px var(--cs-gutter) 8px}
+.tokyo-merch figure img{aspect-ratio:4/5;object-fit:cover}
+.tokyo-print-context{display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:16px;margin-top:24px}
+.tokyo-print-context figure:first-child img{max-height:560px;object-fit:contain}
+.tokyo-network{margin-top:24px;background:#111;border-block:1px solid #ffffff26}
+.tokyo-network>img{display:block;width:100%;height:auto}
+.tokyo-network-labels{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:18px var(--cs-gutter) 24px}
+.tokyo-network-labels>div:last-child{text-align:right}
+.tokyo-network-labels span,.tokyo-network-labels strong{display:block}
+.tokyo-network-labels span{font-size:9px;letter-spacing:.08em;color:#999;margin-bottom:8px}
+.tokyo-network-labels strong{font-size:clamp(12px,1.5vw,19px);font-weight:400}
+.tokyo-recap{position:relative;aspect-ratio:16/9;background:#111;isolation:isolate}
+.tokyo-recap>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;z-index:-1}
+.tokyo-recap>div{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:linear-gradient(transparent,#0006)}
+.tokyo-recap strong{font-size:clamp(18px,3vw,34px);font-weight:400;letter-spacing:.04em}
+.tokyo-recap span{font-size:10px;letter-spacing:.12em;color:#bbb}
+.tokyo-recap .tokyo-play-symbol{font-size:38px;color:#db0000;line-height:1}
+.job-sasim-line>a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){
+  .tokyo-stats{grid-template-columns:1fr 1fr;gap:18px}
+  .tokyo-stats>div{display:block}
+  .tokyo-stats dt{margin-bottom:5px;font-size:8px}
+  .tokyo-case>section{margin-top:32px}
+  .tokyo-visual-pair,.tokyo-print-pair,.tokyo-print-context{grid-template-columns:1fr;gap:8px}
+  .tokyo-process,.tokyo-process-two{grid-template-columns:1fr;gap:18px}
+  .tokyo-process>div+div{border-top:1px solid #ffffff1a}
+  .tokyo-merch{grid-template-columns:1fr;gap:24px}
+  .tokyo-merch figure img{max-height:540px;object-fit:contain}
+  .tokyo-venue-pair{gap:8px}
+  .tokyo-venue-pair figcaption{font-size:8px;padding-left:10px;padding-right:10px}
+  .tokyo-copy{font-size:12px}
+  .tokyo-network-labels{gap:12px}
+  .tokyo-network-labels span{font-size:8px;line-height:1.5}
+}
