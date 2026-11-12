@@ -61,3 +61,15 @@ with `index.html?lang=ko` or `project.html?lang=en#about`.
 When editing English descriptions, update the matching translation key as well.
 The language control is marked `data-no-translate` so language names remain
 recognizable in either version. User-entered form values are never translated.
+
+## Tokyo summit case study
+
+`js/project-tokyo.js` contains the Tokyo 2026 case study. Set `recapYouTubeId`
+to the published 11-character YouTube video ID to replace the final coming-soon
+panel with the recap player. The optimized opening video and all Tokyo image
+assets live in `images/tokyo/`; layout rules live in `css/tokyo.css`.
+
+The selected project list is defined in `js/project-gallery.js`. Tokyo is first
+with a NEW badge; the list stays at 12 projects. The IU/사심인가 video is linked
+in the SBS entry in `career.html`. Participant testimonials are translated by
+`js/i18n.js` and `js/translations-ko.js` when Korean is selected.

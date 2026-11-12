@@ -33,8 +33,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css?v=career-copy-67">
 <link rel="stylesheet" href="css/i18n.css?v=4">
-<script src="js/translations-ko.js?v=6" defer></script>
-<script src="js/i18n.js?v=6" defer></script>
+<link rel="stylesheet" href="css/tokyo.css?v=1">
+<script src="js/translations-ko.js?v=7" defer></script>
+<script src="js/i18n.js?v=7" defer></script>
 </head>
 <body class="portfolio-page">
 
@@ -104,8 +105,8 @@
 
   <div class="portfolio-section-anchor" id="project">
   <section class="project-video-hero" aria-label="Selected work introduction">
-    <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/hero/project-hero-poster.jpg">
-      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/tokyo/wrapped-visual.jpg">
+      <source src="images/tokyo/opening.mp4" type="video/mp4">
     </video>
     <div class="project-video-hero-shade"></div>
     <div class="project-video-hero-copy">
@@ -150,11 +151,6 @@
     <button class="project-cover" type="button" data-project-target="social" style="--cover:url('/images/profile-square.jpg')">
       <span class="project-cover-no">04</span>
       <span class="project-cover-title">SOCIAL</span>
-      <span class="project-cover-action">VIEW PROJECTS ↗</span>
-    </button>
-    <button class="project-cover" type="button" data-project-target="youtube" style="--cover:url('https://img.youtube.com/vi/icSTh7wg2fQ/maxresdefault.jpg')">
-      <span class="project-cover-no">05</span>
-      <span class="project-cover-title">YOUTUBE</span>
       <span class="project-cover-action">VIEW PROJECTS ↗</span>
     </button>
   </section>
@@ -468,18 +464,7 @@
         </div>
 
         <div class="proj-grid-2">
-          <div class="proj-item">
-            <div class="video-placeholder has-thumb" data-video-id="icSTh7wg2fQ" style="background-image:url('https://img.youtube.com/vi/icSTh7wg2fQ/hqdefault.jpg')">
-              <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#101010"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
-            <div class="proj-item-body">
-              <div class="proj-item-title">사심인가</div>
-              <div class="proj-item-sub">IU Video Project</div>
-              <p class="proj-item-desc">An original Inkigayo video project edited from IU fancam footage. The video brought together lyrics from IU's 10-year career to express the heartfelt messages of her fans.</p>
-            </div>
-          </div>
-
-          <div class="proj-item">
+<div class="proj-item">
             <div class="video-placeholder has-thumb" data-video-id="IRmrZPHmAqA" style="background-image:url('https://img.youtube.com/vi/IRmrZPHmAqA/hqdefault.jpg')">
               <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#101010"><path d="M8 5v14l11-7z"/></svg></div>
             </div>
@@ -508,7 +493,8 @@
 <script src="js/app.js?v=mail-overlay-50"></script>
 <script src="js/audio-player.js"></script>
 <script src="js/project-case-studies.js?v=6"></script>
-<script src="js/project-gallery.js?v=case-studies-5"></script>
+<script src="js/project-tokyo.js?v=1"></script>
+<script src="js/project-gallery.js?v=tokyo-1"></script>
 <script>
   (function(){
     const heroVideo = document.querySelector('.project-video-hero video');
@@ -745,7 +731,7 @@
   }
 
   Promise.all([
-    loadUnifiedSection('career.html?v=career-projects-68', 'career'),
+    loadUnifiedSection('career.html?v=tokyo-sbs-69', 'career'),
     loadUnifiedSection('about.html?v=journey-spacing-65', 'about')
   ]).then(()=>{
     initAboutSection();
