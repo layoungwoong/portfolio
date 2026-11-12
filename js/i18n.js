@@ -22,7 +22,7 @@
     '.cs-note', '.cs-caption', '.cs-flow p', '.cs-round p',
     '.cs-student-grid figcaption span', '.cs-collection-summary p',
     '.cs-network-details p', '.connect-feature-copy p', '.emblem-section-heading p',
-    '.cs-heading h3', '.connect-feature-copy h3', '.emblem-section-heading h3',
+    '.cs-heading h3', '.emblem-section-heading h3',
     '.cs-collection-summary h4',
     '.project-video-hero-copy > p', '.about-classic-hero-copy .page-title',
     '.about-feature-intro h1'
@@ -49,6 +49,10 @@
     // A renderer may reuse a node for a different project or playback state.
     if (!record || current !== record.output) record = {source: current};
     record.output = translated(record.source);
+    // Explanatory Korean titles omit full stops; the About greeting keeps its punctuation.
+    if (language === 'ko' && block.matches('.cs-heading h3, .emblem-section-heading h3, .cs-collection-summary h4')) {
+      record.output = record.output.replace(/[.。]/g, '');
+    }
     originals.set(node, record);
     if (current !== record.output) node.nodeValue = record.output;
   }
