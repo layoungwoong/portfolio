@@ -93,7 +93,7 @@
       <div class="cs-network"><img class="cs-network-map" src="images/case-studies/seoul-new-york.svg?v=nats" alt="Pacific-centered world map connecting Seoul and New York with an animated, two-way communication line."><div class="cs-network-details"><div><span>SEOUL / PRODUCTION</span><p>Garment · Key visual · Hero film</p></div><div><span>VIA THE COORDINATOR</span><p>Regular communication · On-site checks</p></div><div><span>NEW YORK / VENUE</span><p>Venue graphics · Film screening</p></div></div></div><p class="cs-caption">Working without an on-site visit, I stayed in close contact with the coordinator to review applications across locations and time zones.</p></section>
       <section>${heading('04 / EVENT RECORD','The identity in context.')}
       ${film('fW9Fs1Osfx8','EVENT RECAP')}
-      <p class="cs-caption">Top: independently produced hero film · Above: event documentation</p></section>`,
+      </section>`,
     'Marvelous Designer User Summit': `
       ${stats([['Approx. 2 months','INVOLVEMENT'],['Approx. 80%','KEY VISUAL & MERCHANDISE'],['Seoul / 2024','LOCATION & YEAR']])}
       <section>${heading('01 / JOIN & DEFINE','Joining mid-project. Defining the visual direction.')}
@@ -103,6 +103,6 @@
       <div class="cs-pair">${pic('images/carousel/marvelous-designer-summit-03.jpg','EVENT MERCHANDISE IN CONTEXT')}${pic('images/carousel/marvelous-designer-summit-02.jpg','ON-SITE BRAND EXPERIENCE')}</div></section>
       <section>${heading('03 / EVENT RECORD','From the proposed idea to the live event.')}
       ${film('9rCrYUGnCJA','EVENT RECAP')}
-      <p class="cs-caption">Contribution applies to key visual and merchandise design. Recap shown as event documentation.</p></section>`
+      </section>`
   };
 })();
